@@ -1,5 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
+  font-family: 'Fredoka', sans-serif;
+  background-color: #FFEDE2;
+  height: 100vh;
+  font-size: 100%;
 }
 
 .App-logo {
@@ -35,4 +45,75 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+/* NAVBAR */
+.navbar-container {
+  background-color: #0B1350;
+  height: 4.6rem ;
+  display: flex;
+  gap: 1rem;
+  font-size: 2rem;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  
+}
+
+.navbar-link-box {
+  color: #ED905D;
+  text-decoration: none;
+}
+
+.cat-logo-img {
+  width: 4.4rem;
+  height: 4.4rem;
+}
+
+/* ALL CATS PAGE */
+
+.cats-page-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+height: 90vh;
+}
+
+.cat-box {
+  background-color: #ED905D;
+  width: 20rem;
+  height: 27rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  margin-top: 3rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.cat-box-img {
+  /* width: 17vw;
+  height: 21vw; */
+  border-radius: 5px;
+  width: 15rem;
+  height: 20rem;
+}
+
+.cat-box-link {
+  text-decoration: none;
+  color: #0B1350;
+}
+
+.cat-box-link-and-img {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.paw-icon {
+  width: 2rem;
+  height: 2rem;
 }
