@@ -10,6 +10,8 @@ export default function Navbar() {
     <Link className='navbar-link-box' to='/'>Home</Link>
 
     <Link className='navbar-link-box' to='/cats'>Cats</Link>
+
+    <Link className='navbar-link-box' to='/cats/add-a-cat'>Add a Cat</Link>
     
     </nav>
      

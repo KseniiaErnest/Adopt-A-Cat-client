@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import CatsPage from './pages/CatsPage';
+import AddCatPage from './pages/AddCatPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
 
     <Route path='/' element={ <HomePage />} />
     <Route path='/cats' element={ <CatsPage /> } />
+    <Route path='/cats/add-a-cat' element={ <AddCatPage /> } />
 
     </Routes>
     </div>
