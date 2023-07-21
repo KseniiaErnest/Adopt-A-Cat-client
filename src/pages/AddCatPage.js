@@ -3,7 +3,8 @@ import axios from 'axios';
 
 const API_URL = "http://localhost:5005";
 
-export default function AddCatPage(props) {
+export default function AddCatPage() {
+
   const [name, setName] = useState('');
   const [age, setAge] = useState(new Date());
   const [breed, setBreed] = useState('');
@@ -14,7 +15,7 @@ export default function AddCatPage(props) {
   const [images, setImages] = useState([]);
   const [dateOfEntry, setDateOfEntry] = useState(new Date());
   const [locations, setLocations] = useState([]);
-  // Fetching the location from API
+  const [selectedLocation, setSelectedLocation] = useState('');
 
 
 // Fetching location from the server
@@ -29,7 +30,12 @@ useEffect(() => {
 const handleSubmit = (e) => {
   e.preventDefault();
 
-  const requestBody = { name, age, breed, gender, color, description, availability, images, dateOfEntry, locations };
+  const formattedAge = new Date(age).toISOString().split('T')[0];
+  const formattedDateOfEntry = new Date(dateOfEntry).toISOString().split('T')[0];
+
+
+  const requestBody = { name, age: formattedAge, breed, gender, color, description, availability, images, dateOfEntry: formattedDateOfEntry, location: selectedLocation };
+
   axios.post(`${API_URL}/cats`, requestBody)
   .then((response) => {
     // Reset the state
@@ -43,13 +49,10 @@ const handleSubmit = (e) => {
     setImages([]);
     setDateOfEntry(new Date());
     setLocations([]);
+    setSelectedLocation('');
   })
   .catch((err) => console.log(err));
 };
-
-
-
-
 
   return (
     <div className='big-container'>
@@ -112,15 +115,16 @@ const handleSubmit = (e) => {
 
 <div className='form-box'>
         <label>Cat is belong to:</label>
-        <select value={locations} onChange={(e) => setLocations(e.target.value)}>
-          <option value=''>Select a location</option>
-          {locations.map((location) => {
-            return (
-              <option key={location._id} value={location._id}> {location.name} </option>
-              )
-            
-          })}
-        </select>
+        <select value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)}>
+            <option value=''>Select a location</option>
+            {locations.map((location) => {
+              return (
+                <option key={location._id} value={location._id}>
+                  {location.name}
+                </option>
+              );
+            })}
+          </select>
 </div>
         <button className='btn'>Submit Cat's Information</button>
 

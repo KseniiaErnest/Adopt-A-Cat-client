@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import CatsPage from './pages/CatsPage';
 import AddCatPage from './pages/AddCatPage';
+import LocationsPage from './pages/LocationsPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
     <Route path='/' element={ <HomePage />} />
     <Route path='/cats' element={ <CatsPage /> } />
     <Route path='/cats/add-a-cat' element={ <AddCatPage /> } />
+    <Route path='/locations' element={ <LocationsPage /> } />
 
     </Routes>
     </div>
