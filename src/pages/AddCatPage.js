@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import ImageUpload from '../components/ImageUpload';
+
 const API_URL = "http://localhost:5005";
 
 export default function AddCatPage() {
@@ -97,16 +99,14 @@ const handleSubmit = (e) => {
 <div className='form-box'>
         <label>Cat's status:</label>
         <select id='availability' value={availability} onChange={(e) => setAvailability(e.target.value)}>
+        <option value=''>Please, select one</option>
         <option value='Available'>Available</option>
         <option value='Adopted'>Adopted</option>
         <option value='Pending'>Pending</option>
         </select>
 </div>        
 
-<div className='form-box'>
-        <label>Cat's images:</label>
-        <input type='text' name='images' value={images} onChange={(e) => setImages(e.target.value)} />
-</div>
+
 
 <div className='form-box'>
         <label>Cat's date of entry into the system</label>
@@ -126,6 +126,9 @@ const handleSubmit = (e) => {
             })}
           </select>
 </div>
+
+<ImageUpload images={images} setImages={setImages} maxImages={5} />
+
         <button className='btn'>Submit Cat's Information</button>
 
       </form>
