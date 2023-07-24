@@ -35,12 +35,13 @@ export default function AddLocationPage() {
  };
 
   return (
-    <div>
-      <h1>Add information about organization</h1>
+    <div className='big-container'>
 
-      <form onSubmit={handleSubmit}>
+      <h1 className='big-heading'>Add information about organization</h1>
 
-      <div className='form-box'>
+      <form className='add-cat-form' onSubmit={handleSubmit}>
+
+      <div  className='form-box'>
         <label>Organization name:</label>
         <input type='text' name='name' value={name} onChange={(e) => setName(e.target.value)} />
 </div>
@@ -81,7 +82,7 @@ export default function AddLocationPage() {
 </div>
 
 
-
+<button className='btn'>Submit Information</button>
       </form>
     </div>
   )

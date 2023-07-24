@@ -49,7 +49,7 @@ useEffect(() => {
     )}
 
     <Link to='/locations'><button>Back</button></Link>
-    <Link to={`/locations/edit/${locationId}`}><button>Edit</button></Link>
+    <Link to={`/locations/edit/${locationId}`}><button>Edit or Delete</button></Link>
       
     </div>
   )
