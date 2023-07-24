@@ -218,6 +218,12 @@ padding: 1rem;
   padding: 1rem;
 }
 
+/* CAT DETAILS */
+.cat-details-img-box {
+  display: flex;
+  gap: 1rem;
+}
+
 
 
 

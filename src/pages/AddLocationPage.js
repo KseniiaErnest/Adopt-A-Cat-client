@@ -1,0 +1,88 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const API_URL = "http://localhost:5005";
+
+export default function AddLocationPage() {
+
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [openingHours, setOpeningHours] = useState('');
+  const [website, setWebsite] = useState('');
+  const [description, setDescription] = useState('');
+  const [cats, setCats] = useState([]);
+
+ const handleSubmit = (e) => {
+  e.preventDefault();
+
+  const requestBody = { name, address, phoneNumber, email, openingHours, website, description, cats };
+
+  axios.post(`${API_URL}/locations`, requestBody)
+  .then((response) => {
+    // Reset state
+    setName('');
+    setAddress('');
+    setPhoneNumber('');
+    setEmail('');
+    setOpeningHours('');
+    setWebsite('');
+    setDescription('');
+    setCats('');
+  })
+  .catch((err) => console.log(err));
+ };
+
+  return (
+    <div>
+      <h1>Add information about organization</h1>
+
+      <form onSubmit={handleSubmit}>
+
+      <div className='form-box'>
+        <label>Organization name:</label>
+        <input type='text' name='name' value={name} onChange={(e) => setName(e.target.value)} />
+</div>
+
+<div className='form-box'>
+        <label>Address:</label>
+        <input type='text' name='address' value={address} onChange={(e) => setAddress(e.target.value)} />
+</div>
+
+<div className='form-box'>
+        <label>Phone number:</label>
+        <input type='text' name='phoneNumber' value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+</div>
+
+<div className='form-box'>
+        <label>Email:</label>
+        <input type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+</div>
+
+<div className='form-box'>
+        <label>Open Hours:</label>
+        <input type='text' name='openingHours' value={openingHours} onChange={(e) => setOpeningHours(e.target.value)} />
+</div>
+
+<div className='form-box'>
+        <label>Website:</label>
+        <input type='text' name='website' value={website} onChange={(e) => setWebsite(e.target.value)} />
+</div>
+
+<div className='form-box'>
+        <label>About:</label>
+        <input type='text' name='description' value={description} onChange={(e) => setDescription(e.target.value)} />
+</div>
+
+<div className='form-box'>
+        <label>Cats:</label>
+        <input type='text' name='cats' value={cats} onChange={(e) => setCats(e.target.value)} />
+</div>
+
+
+
+      </form>
+    </div>
+  )
+}

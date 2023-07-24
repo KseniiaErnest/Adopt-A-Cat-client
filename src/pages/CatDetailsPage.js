@@ -43,7 +43,11 @@ export default function CatDetailsPage() {
           <color>Color: {catDetails.color}</color>
           <p>About: {catDetails.description}</p>
           <p>Status: {catDetails.availability}</p>
-          <img className='cat-box-img' src={catDetails.images} alt='Photos of the cat' />
+          <div className='cat-details-img-box' >
+          {catDetails.images.map((image, index) => (
+            <img key={index} className='cat-box-img' src={image} alt='Photos of the cat' />
+          ))}
+          </div>
           <p>Date of entry in the system: {formattedDate(catDetails.dateOfEntry)}</p>
           <p>Belong to: {catDetails.location.name}</p>
         </div>
