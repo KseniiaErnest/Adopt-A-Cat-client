@@ -50,7 +50,7 @@ export default function CatDetailsPage() {
       )}
 
       <Link to='/cats'><button>Back to cats list</button></Link>
-      <Link to={`/cats/edit/${catId}`} ><button>Edit Cat</button></Link>
+      <Link to={`/cats/edit/${catId}`} ><button>Edit or Delete Cat</button></Link>
 
     </div>
   )

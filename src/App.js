@@ -9,6 +9,7 @@ import AddCatPage from './pages/AddCatPage';
 import LocationsPage from './pages/LocationsPage';
 import CatDetailsPage from './pages/CatDetailsPage';
 import LocationDetailsPage from './pages/LocationDetailsPage';
+import EditCatPages from './pages/EditCatPages';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
     <Route path='/cats' element={ <CatsPage /> } />
     <Route path='/cats/:catId' element={ <CatDetailsPage /> } />
     <Route path='/cats/add-a-cat' element={ <AddCatPage /> } />
+    <Route path='/cats/edit/:catId' element={ <EditCatPages /> } />
     <Route path='/locations' element={ <LocationsPage /> } />
     <Route path='/locations/:locationId' element={ <LocationDetailsPage /> } />
 
