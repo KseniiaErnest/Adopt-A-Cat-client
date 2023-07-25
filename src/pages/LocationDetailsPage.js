@@ -26,9 +26,11 @@ useEffect(() => {
 
 
   return (
-    <div>
+    <div className='section'>
     {locationDetails && (
-      <div>
+      <div className='home-grid'>
+
+      <div className='cat-details-info-box'>
         <h2>Name: {locationDetails.name}</h2>
         <p>Address: {locationDetails.address}</p>
         <p>Phone number: {locationDetails.phoneNumber}</p>
@@ -36,20 +38,32 @@ useEffect(() => {
         <p>Open hours: {locationDetails.openingHours}</p>
         <p>Website: {locationDetails.website}</p>
         <p>About: {locationDetails.description}</p>
+        <div className='btn-container'>
+        <Link to='/locations'><button className='btn-all back-button'>Back</button></Link>
+    <Link to={`/locations/edit/${locationId}`}><button className='btn-all edit-button'>Edit or Delete</button></Link>
+    </div>
+        </div>
+<div className='cats-photo-container'>
         <p>Cats:</p>
+        <div>
         <ul>
           {locationDetails.cats.map((cat) => {
             return (
-              <li key={cat._id}>{cat.name}</li>
+              <div key={cat._id}>
+              <p>{cat.name}</p>
+              <img src={cat.image[0]} alt='Cat pic' />
+              </div>
             )
            
           })}
         </ul>
+        </div>
+
+        </div>
+
       </div>
     )}
 
-    <Link to='/locations'><button>Back</button></Link>
-    <Link to={`/locations/edit/${locationId}`}><button>Edit or Delete</button></Link>
       
     </div>
   )

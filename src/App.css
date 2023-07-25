@@ -26,6 +26,34 @@
   }
 }
 
+/* ALL */
+.btn-all {
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 11px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  box-shadow: 2px 2px 20px 10px rgba(128, 128, 128 , 0.2);
+  transition: all 0.3s;
+}
+
+.back-button {
+  background-color: #0B1350;
+  color: #FFEDE2;
+  margin-right: 1rem;
+}
+
+.edit-button {
+  background-color: #FFEDE2;
+  color: #0B1350;
+}
+
+.back-button:hover, .edit-button:hover {
+  filter: brightness(90%);
+}
+
 
 /* NAVBAR */
 .navbar-container {
@@ -53,13 +81,13 @@
 /* HOMEPAGE */
 
 .home-grid {
-  max-width: 90%;
+  max-width: 90rem;
  
   display: grid;
-  grid-template-columns:  1fr 1fr;
+  grid-template-columns:  0.5fr 1fr;
   margin: 0 auto;
-  margin-top: 5rem;
   align-items: center;
+  padding: 1rem;
 }
 
 .home-container-two img {
@@ -219,12 +247,60 @@ padding: 1rem;
 }
 
 /* CAT DETAILS */
+
+.cat-details-info-box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: #ED905D;
+  color: #0B1350;
+  padding: 2rem 1rem;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
 .cat-details-img-box {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+  justify-self: center;
+ 
+}
+
+.cat-box-img {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.cat-details-heading {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.cat-details-heading span {
+  font-weight: 700;
+}
+
+.cat-details-info-box p {
+  font-size: 1.5rem;
+}
+
+.btn-container {
+  margin-top: 1.5rem;
 }
 
 
+
+.section {
+  padding: 3rem 0;
+  /* height: 100%; */
+}
+
+
+/* LOCATION DETAILS */
+.cats-photo-container {
+  
+}
 
 
 

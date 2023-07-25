@@ -52,8 +52,10 @@ const handleSubmit = (e) => {
     setDateOfEntry(new Date());
     setLocations([]);
     setSelectedLocation('');
+
   })
   .catch((err) => console.log(err));
+
 };
 
   return (

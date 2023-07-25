@@ -34,27 +34,38 @@ export default function CatDetailsPage() {
   };
 
   return (
-    <div>
+    <div className='section'>
       {catDetails && (
-        <div>
-          <h2>Cat's name: {catDetails.name}</h2>
+        <div className='home-grid'>
+
+        <div className='cat-details-info-box'>
+
+          <h2 className='cat-details-heading'>Cat's name: <span>{catDetails.name}</span> </h2>
           <p>Date of birth: {formattedDate(catDetails.age)}</p>
           <p>Sex: {catDetails.gender}</p>
-          <color>Color: {catDetails.color}</color>
+          <p>Color: {catDetails.color}</p>
           <p>About: {catDetails.description}</p>
           <p>Status: {catDetails.availability}</p>
+          <p>Date of entry in the system: {formattedDate(catDetails.dateOfEntry)}</p>
+          <p>Belong to: {catDetails.location.name}</p>
+
+          <div className='btn-container'>
+          <Link to='/cats'><button className='btn-all back-button'>Back to cats list</button></Link>
+      <Link to={`/cats/edit/${catId}`} ><button className='btn-all edit-button'>Edit or Delete Cat</button></Link>
+      </div>
+
+      </div>
+
           <div className='cat-details-img-box' >
           {catDetails.images.map((image, index) => (
             <img key={index} className='cat-box-img' src={image} alt='Photos of the cat' />
           ))}
           </div>
-          <p>Date of entry in the system: {formattedDate(catDetails.dateOfEntry)}</p>
-          <p>Belong to: {catDetails.location.name}</p>
+
         </div>
       )}
 
-      <Link to='/cats'><button>Back to cats list</button></Link>
-      <Link to={`/cats/edit/${catId}`} ><button>Edit or Delete Cat</button></Link>
+    
 
     </div>
   )
