@@ -16,6 +16,10 @@ export default function Navbar() {
     <Link className='navbar-link-box' to='/locations'>Cats Owners</Link>
 
     <Link className='navbar-link-box' to='/locations/add-a-location'>Add a Location</Link>
+
+    <Link className='navbar-link-box' to='/signup'>Sign Up</Link>
+
+    <Link className='navbar-link-box' to='/login'>Login</Link>
     
     </nav>
      

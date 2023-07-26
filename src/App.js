@@ -12,6 +12,7 @@ import EditCatPages from './pages/EditCatPages';
 import LocationsPage from './pages/LocationsPage';
 import AddLocationPage from './pages/AddLocationPage';
 import EditLocationPage from './pages/EditLocationPage';
+import SignupPage from './pages/SignupPage';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
     <Route path='/locations/add-a-location' element={ <AddLocationPage /> } />
     <Route path='/locations/:locationId' element={ <LocationDetailsPage /> } />
     <Route path='/locations/edit/:locationId' element={ <EditLocationPage /> } />
+    <Route path='/signup' element={ <SignupPage /> } />
 
     </Routes>
     </div>
