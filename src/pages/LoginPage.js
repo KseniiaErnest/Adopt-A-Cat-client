@@ -22,7 +22,8 @@ const handleLoginSubmit = (e) => {
 
   axios.post(`${API_URL}/auth/login`, requestBody)
   .then((response) => {
-
+    console.log(response.data);
+navigate('/');
   })
   .catch((err) => {
     const errorDescription = err.response.data.message;
