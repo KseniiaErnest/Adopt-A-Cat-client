@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
+
 
 
 const API_URL = "http://localhost:5005";
 
-export default function LoginPage() {
+export default function LoginPage(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(undefined);
 
 const navigate = useNavigate();
+
+const { storeToken, authenticateUser } = useContext(AuthContext); 
 
 const handleEmail = (e) => setEmail(e.target.value);
 const handlePassword = (e) => setPassword(e.target.value);
@@ -22,14 +26,21 @@ const handleLoginSubmit = (e) => {
 
   axios.post(`${API_URL}/auth/login`, requestBody)
   .then((response) => {
-    console.log(response.data);
-navigate('/');
+    console.log('JWT token', response.data.authToken );
+
+    storeToken(response.data.authToken);
+    
+    authenticateUser();
+
+     navigate('/');
   })
   .catch((err) => {
     const errorDescription = err.response.data.message;
     setErrorMessage(errorDescription);
   })
 };
+
+
 
   return (
     <div>

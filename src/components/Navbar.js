@@ -5,7 +5,13 @@ import { AuthContext } from "../context/auth.context";
 
 export default function Navbar() {
   // Subscribe to the AuthContext to gain access to the values from AuthContext.Provider `value` prop.
-  const { isLoggedIn, user, logout } = useContext(AuthContext);
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+
+  // Add console.log statements to check the login status
+  console.log('isLoggedIn:', isLoggedIn);
+  console.log('user:', user);
+
+
 
   //  Update the rendering logic to display different content depending on whether the user is logged in or not
   return (
@@ -35,7 +41,7 @@ export default function Navbar() {
           </Link>
 
           {user && <span>{user.fullName}</span>}
-          <button onClick={logout}>Logout</button>
+          <button onClick={logOutUser}>Logout</button>
         </>
       )}
 
@@ -53,3 +59,12 @@ export default function Navbar() {
     </nav>
   );
 }
+
+
+
+
+
+
+
+
+
