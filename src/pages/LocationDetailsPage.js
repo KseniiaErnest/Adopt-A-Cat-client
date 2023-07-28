@@ -9,7 +9,7 @@ export default function LocationDetailsPage() {
 
   const [locationDetails, setLocationDetails] = useState(null);
 
-  // Get the URL parameter ':catId':
+  // Get the URL parameter ':locationId':
   const { locationId } = useParams();
   const { user } = useContext(AuthContext);
 
@@ -30,6 +30,9 @@ useEffect(() => {
   getLocationDetails();
 }, [] );
 
+// Check if the user is associated with this location
+const isUserAssociatedWithLocation = locationDetails && locationDetails.createdBy === user?._id;
+// The symbol '?' in 'user?._id' is a optional chaining operator (ECMAScript2020) = locationDetails && locationDetails.createdBy === user && user._id;
 
   return (
     <div className='section'>
@@ -47,7 +50,7 @@ useEffect(() => {
         <div className='btn-container'>
         <Link to='/locations'><button className='btn-all back-button'>Back</button></Link>
 
-        { user && user.locationId === locationId && (
+        { isUserAssociatedWithLocation && (
           <Link to={`/locations/edit/${locationId}`}><button className='btn-all edit-button'>Edit or Delete</button></Link>
         )}
 

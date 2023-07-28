@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
 
 const API_URL = "http://localhost:5005";
 
@@ -10,6 +11,7 @@ export default function CatDetailsPage() {
 
   // Get the URL parameter ':catId':
   const { catId } = useParams();
+  const { user } = useContext(AuthContext);
 
   // Get the token from the localStorage
   const storedToken = localStorage.getItem("authToken");
@@ -37,6 +39,9 @@ export default function CatDetailsPage() {
     });
   };
 
+  // Check if the cat's location matches the currently logged-in user's location
+  // const isUserAssociatedWithCat = user && catDetails && user.locationId === catDetails.location._id;
+
   return (
     <div className='section'>
       {catDetails && (
@@ -55,7 +60,11 @@ export default function CatDetailsPage() {
 
           <div className='btn-container'>
           <Link to='/cats'><button className='btn-all back-button'>Back to cats list</button></Link>
-      <Link to={`/cats/edit/${catId}`} ><button className='btn-all edit-button'>Edit or Delete Cat</button></Link>
+
+          {user && user._id === catDetails.location.createdBy && (
+            <Link to={`/cats/edit/${catId}`} ><button className='btn-all edit-button'>Edit or Delete Cat</button></Link>
+          )}
+      
       </div>
 
       </div>
