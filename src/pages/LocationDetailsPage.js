@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
 
 const API_URL = "http://localhost:5005";
 
@@ -10,6 +11,7 @@ export default function LocationDetailsPage() {
 
   // Get the URL parameter ':catId':
   const { locationId } = useParams();
+  const { user } = useContext(AuthContext);
 
   // Get the token from the localStorage
   const storedToken = localStorage.getItem("authToken");
@@ -44,7 +46,11 @@ useEffect(() => {
         <p>About: {locationDetails.description}</p>
         <div className='btn-container'>
         <Link to='/locations'><button className='btn-all back-button'>Back</button></Link>
-    <Link to={`/locations/edit/${locationId}`}><button className='btn-all edit-button'>Edit or Delete</button></Link>
+
+        { user && user.locationId === locationId && (
+          <Link to={`/locations/edit/${locationId}`}><button className='btn-all edit-button'>Edit or Delete</button></Link>
+        )}
+
     </div>
         </div>
 <div className='cats-photo-container'>
