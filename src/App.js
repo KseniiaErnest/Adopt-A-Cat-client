@@ -14,6 +14,8 @@ import AddLocationPage from './pages/AddLocationPage';
 import EditLocationPage from './pages/EditLocationPage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
+import IsAnon from './components/IsAnon';
+import IsPrivate from './components/IsPrivate';
 
 function App() {
   return (
@@ -24,16 +26,16 @@ function App() {
     <Routes>
 
     <Route path='/' element={ <HomePage />} />
-    <Route path='/cats' element={ <CatsPage /> } />
-    <Route path='/cats/:catId' element={ <CatDetailsPage /> } />
-    <Route path='/cats/add-a-cat' element={ <AddCatPage /> } />
-    <Route path='/cats/edit/:catId' element={ <EditCatPages /> } />
-    <Route path='/locations' element={ <LocationsPage /> } />
-    <Route path='/locations/add-a-location' element={ <AddLocationPage /> } />
-    <Route path='/locations/:locationId' element={ <LocationDetailsPage /> } />
-    <Route path='/locations/edit/:locationId' element={ <EditLocationPage /> } />
-    <Route path='/signup' element={ <SignupPage /> } />
-    <Route path='/login' element={ <LoginPage /> } />
+    <Route path='/cats' element={ <IsPrivate><CatsPage /></IsPrivate>  } />
+    <Route path='/cats/:catId' element={ <IsPrivate><CatDetailsPage /></IsPrivate>  } />
+    <Route path='/cats/add-a-cat' element={ <IsPrivate><AddCatPage /></IsPrivate> } />
+    <Route path='/cats/edit/:catId' element={ <IsPrivate><EditCatPages /></IsPrivate>  } />
+    <Route path='/locations' element={ <IsPrivate><LocationsPage /></IsPrivate>  } />
+    <Route path='/locations/add-a-location' element={ <IsPrivate><AddLocationPage /></IsPrivate>  } />
+    <Route path='/locations/:locationId' element={ <IsPrivate><LocationDetailsPage /></IsPrivate>  } />
+    <Route path='/locations/edit/:locationId' element={ <IsPrivate><EditLocationPage /></IsPrivate>  } />
+    <Route path='/signup' element={ <IsAnon><SignupPage /></IsAnon> } />
+    <Route path='/login' element={ <IsAnon><LoginPage /></IsAnon> } />
 
     </Routes>
     </div>

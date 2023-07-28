@@ -8,8 +8,12 @@ export default function LocationsPage() {
 
   const [locations, setLocations] = useState([]);
 
+   // Get the token from the localStorage
+   const storedToken = localStorage.getItem("authToken");
+
+    // Send the token through the request "Authorization" Headers
   const getAllLocations = () => {
-    axios.get(`${API_URL}/locations`)
+    axios.get(`${API_URL}/locations`,  { headers: { Authorization: `Bearer ${storedToken}` } })
     .then((response) => setLocations(response.data.allLocations))
     .catch((err) => console.log(err))
   };

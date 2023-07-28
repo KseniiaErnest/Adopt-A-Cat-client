@@ -19,10 +19,12 @@ export default function AddCatPage() {
   const [locations, setLocations] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState('');
 
+ // Get the token from the localStorage
+ const storedToken = localStorage.getItem('authToken');
 
 // Fetching location from the server
 useEffect(() => {
-  axios.get(`${API_URL}/locations`)
+  axios.get(`${API_URL}/locations`, { headers: { Authorization: `Bearer ${storedToken}` } })
   .then((response) => {
     setLocations(response.data.allLocations);
   })
@@ -38,7 +40,8 @@ const handleSubmit = (e) => {
 
   const requestBody = { name, age: formattedAge, breed, gender, color, description, availability, images, dateOfEntry: formattedDateOfEntry, location: selectedLocation };
 
-  axios.post(`${API_URL}/cats`, requestBody)
+  // Send the token through the request "Authorization" Headers
+  axios.post(`${API_URL}/cats`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
   .then((response) => {
     // Reset the state
     setName('');

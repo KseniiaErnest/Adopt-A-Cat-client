@@ -11,9 +11,13 @@ export default function CatDetailsPage() {
   // Get the URL parameter ':catId':
   const { catId } = useParams();
 
+  // Get the token from the localStorage
+  const storedToken = localStorage.getItem("authToken");
+
   // Helper function that makes a GET request to the API and retrieves the cat by id
+  // Send the token through the request "Authorization" Headers
   const getCatDetails = () => {
-    axios.get(`${API_URL}/cats/${catId}`)
+    axios.get(`${API_URL}/cats/${catId}`, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then((response) => {
       setCatDetails(response.data.oneCat)
     })

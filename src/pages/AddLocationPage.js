@@ -14,12 +14,16 @@ export default function AddLocationPage() {
   const [description, setDescription] = useState('');
   const [cats, setCats] = useState([]);
 
+  // Get the token from the localStorage
+  const storedToken = localStorage.getItem('authToken');
+
  const handleSubmit = (e) => {
   e.preventDefault();
 
   const requestBody = { name, address, phoneNumber, email, openingHours, website, description, cats };
 
-  axios.post(`${API_URL}/locations`, requestBody)
+  // Send the token through the request "Authorization" Headers
+  axios.post(`${API_URL}/locations`, requestBody,  { headers: { Authorization: `Bearer ${storedToken}` } })
   .then((response) => {
     // Reset state
     setName('');

@@ -8,7 +8,11 @@ export default function CatsPage() {
   const [cats, setCats] = useState([]);
 
   const getAllCats = () => {
-    axios.get(`${API_URL}/cats`)
+    // Get the token from the localStorage
+  const storedToken = localStorage.getItem("authToken");
+
+  // Send the token through the request "Authorization" Headers
+    axios.get(`${API_URL}/cats`, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then((response) => setCats(response.data.allCats))
     .catch((err) => console.log(err))
   };

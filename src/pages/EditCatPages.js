@@ -22,15 +22,19 @@ export default function EditCatPages() {
   const { catId } = useParams();
   const navigate = useNavigate(); 
 
+   // Get the token from the localStorage
+   const storedToken = localStorage.getItem('authToken');
+
   // Set the editedImages state with the current images when the component mounts
   useEffect(() => {
     setEditedImages(images);
   }, [images]);
 
 
-   // This effect will run after the initial render and each time the catId coming from the URL parameter `catId` changes
+   // This effect will run after the initial render and each time the catId coming from the URL parameter `catId` changes;
+    // Send the token through the request "Authorization" Headers
 useEffect(() => {
-  axios.get(`${API_URL}/cats/${catId}`)
+  axios.get(`${API_URL}/cats/${catId}`, { headers: { Authorization: `Bearer ${storedToken}` } })
   .then((response) => {
      /* We update the state with the cat data coming from the response. This way we set inputs to show the actual data of the cat */
      const oneCat = response.data.oneCat;
@@ -48,22 +52,26 @@ useEffect(() => {
   .catch((err) => console.log(err));
 }, []);
 
+
+ // Send the token through the request "Authorization" Headers
 const handleFormSubmit = (e) => {
   e.preventDefault();
   // Create an object representing the body of the PUT request
   const requestBody = { name, age, breed, gender, color, description, availability, images: editedImages, dateOfEntry };
 
   // Make a PUT request to update the cat
-  axios.put(`${API_URL}/cats/${catId}`, requestBody)
+  axios.put(`${API_URL}/cats/${catId}`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
   .then((response) => {
     // Once the request is resolved successfully and the cat is updated we navigate back to the details page
     navigate(`/cats/${catId}`)
   });
 };
 
+
+ // Send the token through the request "Authorization" Headers
 const deleteCatInfo = () => {
 // Make a DELETE request to delete the cat infromation
-axios.delete(`${API_URL}/cats/${catId}`)
+axios.delete(`${API_URL}/cats/${catId}`, { headers: { Authorization: `Bearer ${storedToken}` } })
 .then(() => {
   navigate('/cats');
 })

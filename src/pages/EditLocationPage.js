@@ -18,9 +18,13 @@ export default function EditLocationPage() {
   const { locationId } = useParams();
   const navigate = useNavigate();
 
-  // This effect will run after the initial render and each time the catId coming from the URL parameter `catId` changes
+  // Get the token from the localStorage
+  const storedToken = localStorage.getItem('authToken');
+
+  // This effect will run after the initial render and each time the catId coming from the URL parameter `catId` changes;
+  // Send the token through the request "Authorization" Headers
   useEffect(() => {
-    axios.get(`${API_URL}/locations/${locationId}`)
+    axios.get(`${API_URL}/locations/${locationId}`, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then((response) => {
       /* We update the state with the location data coming from the response. This way we set inputs to show the actual data of the location */
       const oneLocation = response.data.oneLocation;
@@ -37,20 +41,22 @@ export default function EditLocationPage() {
     .catch((err) => console.log(err));
   }, []);
 
+  // Send the token through the request "Authorization" Headers
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the body of the PUT request
 const requestBody = { name, address, phoneNumber, email, openingHours, website, description };
 
 // Make a PUT request to update the cat
-axios.put(`${API_URL}/locations/${locationId}`, requestBody)
+axios.put(`${API_URL}/locations/${locationId}`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
 .then((response) => {
   navigate(`/locations/${locationId}`)
 });
   };
 
+  // Send the token through the request "Authorization" Headers
   const deleteLocationInfo = () => {
-    axios.delete(`${API_URL}/locations/${locationId}`)
+    axios.delete(`${API_URL}/locations/${locationId}`, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then(() => {
       navigate('/locations');
     })

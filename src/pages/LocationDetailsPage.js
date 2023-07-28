@@ -11,9 +11,13 @@ export default function LocationDetailsPage() {
   // Get the URL parameter ':catId':
   const { locationId } = useParams();
 
-  // Helper function that makes a GET request to the API and retrieves the location by id
+  // Get the token from the localStorage
+  const storedToken = localStorage.getItem("authToken");
+
+  // Helper function that makes a GET request to the API and retrieves the location by id;
+  // Send the token through the request "Authorization" Headers
 const getLocationDetails = () => {
-  axios.get(`${API_URL}/locations/${locationId}`)
+  axios.get(`${API_URL}/locations/${locationId}`,  { headers: { Authorization: `Bearer ${storedToken}` } })
   .then((response) => {
     setLocationDetails(response.data.oneLocation);
   })
