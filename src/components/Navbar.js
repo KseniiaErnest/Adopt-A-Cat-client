@@ -5,7 +5,7 @@ import { AuthContext } from "../context/auth.context";
 
 export default function Navbar() {
   // Subscribe to the AuthContext to gain access to the values from AuthContext.Provider `value` prop.
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, user, logOutUser, role } = useContext(AuthContext);
 
   // Add console.log statements to check the login status
   console.log('isLoggedIn:', isLoggedIn);
@@ -28,17 +28,26 @@ export default function Navbar() {
             Cats
           </Link>
 
-          <Link className="navbar-link-box" to="/cats/add-a-cat">
+{role === 'Cat Owner' && (
+  <>
+  
+  <Link className="navbar-link-box" to="/cats/add-a-cat">
             Add a Cat
-          </Link>
-
-          <Link className="navbar-link-box" to="/locations">
-            Cats Owners
           </Link>
 
           <Link className="navbar-link-box" to="/locations/add-a-location">
             Add a Location
           </Link>
+
+          </>
+)}
+          
+
+          <Link className="navbar-link-box" to="/locations">
+            Cats Owners
+          </Link>
+
+         
 
           {user && <span>{user.fullName}</span>}
           <button onClick={logOutUser}>Logout</button>

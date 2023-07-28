@@ -25,7 +25,7 @@ function App() {
 
     <Routes>
 
-    <Route path='/' element={ <HomePage />} />
+    {/* <Route path='/' element={ <HomePage />} />
     <Route path='/cats' element={ <IsPrivate><CatsPage /></IsPrivate>  } />
     <Route path='/cats/:catId' element={ <IsPrivate><CatDetailsPage /></IsPrivate>  } />
     <Route path='/cats/add-a-cat' element={ <IsPrivate><AddCatPage /></IsPrivate> } />
@@ -35,7 +35,19 @@ function App() {
     <Route path='/locations/:locationId' element={ <IsPrivate><LocationDetailsPage /></IsPrivate>  } />
     <Route path='/locations/edit/:locationId' element={ <IsPrivate><EditLocationPage /></IsPrivate>  } />
     <Route path='/signup' element={ <IsAnon><SignupPage /></IsAnon> } />
-    <Route path='/login' element={ <IsAnon><LoginPage /></IsAnon> } />
+    <Route path='/login' element={ <IsAnon><LoginPage /></IsAnon> } /> */}
+
+    <Route path='/' element={<HomePage />} />
+        <Route path='/cats' element={<IsPrivate allowedRoles={['Cat Owner', 'Adopter']}><CatsPage /></IsPrivate>} />
+        <Route path='/cats/:catId' element={<IsPrivate allowedRoles={['Cat Owner', 'Adopter']}><CatDetailsPage /></IsPrivate>} />
+        <Route path='/cats/add-a-cat' element={<IsPrivate allowedRoles={['Cat Owner']}><AddCatPage /></IsPrivate>} />
+        <Route path='/cats/edit/:catId' element={<IsPrivate allowedRoles={['Cat Owner']}><EditCatPages /></IsPrivate>} />
+        <Route path='/locations' element={<IsPrivate allowedRoles={['Cat Owner', 'Adopter']}><LocationsPage /></IsPrivate>} />
+        <Route path='/locations/add-a-location' element={<IsPrivate allowedRoles={['Cat Owner']}><AddLocationPage /></IsPrivate>} />
+        <Route path='/locations/:locationId' element={<IsPrivate allowedRoles={['Cat Owner', 'Adopter']}><LocationDetailsPage /></IsPrivate>} />
+        <Route path='/locations/edit/:locationId' element={<IsPrivate allowedRoles={['Cat Owner']}><EditLocationPage /></IsPrivate>} />
+        <Route path='/signup' element={<IsAnon><SignupPage /></IsAnon>} />
+        <Route path='/login' element={<IsAnon><LoginPage /></IsAnon>} />
 
     </Routes>
     </div>
