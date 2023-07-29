@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
+import Carousel from '../components/Carousel';
 
 const API_URL = "http://localhost:5005";
 
@@ -70,9 +71,9 @@ export default function CatDetailsPage() {
       </div>
 
           <div className='cat-details-img-box' >
-          {catDetails.images.map((image, index) => (
-            <img key={index} className='cat-box-img' src={image} alt='Photos of the cat' />
-          ))}
+         
+            <Carousel images={catDetails.images} />
+        
           </div>
 
         </div>
@@ -83,3 +84,10 @@ export default function CatDetailsPage() {
     </div>
   )
 }
+
+
+{/* <div className='cat-details-img-box' >
+{catDetails.images.map((image, index) => (
+  <Carousel images={image} key={index} />
+))}
+</div> */}
