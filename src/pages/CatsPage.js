@@ -2,10 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import Filter from '../components/Filter';
+
 const API_URL = "http://localhost:5005";
 
 export default function CatsPage() {
   const [cats, setCats] = useState([]);
+
+  // States for filter to keep track
+  const [ageCategory, setAgeCategory] = useState('');
+  const [gender, setGender] = useState('');
 
   const getAllCats = () => {
     // Get the token from the localStorage
@@ -21,22 +27,56 @@ export default function CatsPage() {
     getAllCats();
   }, []);
 
+// Finction to calculate cat's age based on the birthdate, and the function is needed to make age categories for dropdown menu and filter
+  const calculateCatsAge = (birthdate) => {
+    const currentDate = new Date();
+    const catBirthdate = new Date(birthdate);
+  
+    const monthsDifference =
+      (currentDate.getFullYear() - catBirthdate.getFullYear()) * 12 +
+      (currentDate.getMonth() - catBirthdate.getMonth());
+  
+      if (monthsDifference <= 12) {
+        return 'Kitten';
+      } else if (monthsDifference >= 13 && monthsDifference < 61) {
+        return 'Young adult';
+      } else if (monthsDifference >= 61 && monthsDifference <= 96) {
+        return 'Adult';
+      } else {
+        return 'Senior';
+      }
+  };
+
+
+  // Filter handles
+
+  // Function to handle age category change in the dropdown menu (onChange);
+  // Triggered when the user selects an option, update ageCategory state
+  const handleAgeCategoryChange = (event) => {
+    setAgeCategory(event.target.value);
+  };
+
+  // Function to handle gender change in the dropdown menu (onChange);
+   // Triggered when the user selects an option, update gender state
+  const handleGenderChange = (e) => {
+    setGender(e.target.value);
+  }; 
+
+  // Calculate age category for each cat
+  useEffect(() => {
+    if (cats.length > 0) {
+      setCats((prevCats) =>
+        prevCats.map((cat) => ({ ...cat, ageCategory: calculateCatsAge(cat.age) }))
+      );
+    }
+  }, [cats]);
+
   return (
-    <div className='cats-page-container'>
-      {cats.map((cat) => {
-        return (
-          <div className='cat-box' key={cat._id}>
-          <img className='cat-box-img' src={cat.images[0]} alt='Cat intro pic' />
-          <div className='cat-box-link-and-img'>
-          <img className='paw-icon' src='/icons8-cat-footprint-50.png' alt='Cat paw icon' />
-          <Link className='cat-box-link' to={`/cats/${cat._id}`}>
-            <h2>{cat.name}</h2>
-          </Link>
-          <img className='paw-icon' src='/icons8-cat-footprint-50.png' alt='Cat paw icon' />
-          </div>
-          </div>
-        )
-      })}
+    <div >
+      <Filter cats={cats} ageCategory={ageCategory} handleAgeCategoryChange={handleAgeCategoryChange} gender={gender} handleGenderChange={handleGenderChange} />
     </div>
   )
 }
+
+
+
