@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import Filter from '../components/Filter';
 
@@ -8,6 +8,9 @@ const API_URL = "http://localhost:5005";
 
 export default function CatsPage() {
   const [cats, setCats] = useState([]);
+
+  /////////////////////////////////////
+  const { species } = useParams();
 
   // States for filter to keep track
   const [ageCategory, setAgeCategory] = useState('');
@@ -18,14 +21,14 @@ export default function CatsPage() {
   const storedToken = localStorage.getItem("authToken");
 
   // Send the token through the request "Authorization" Headers
-    axios.get(`${API_URL}/cats`, { headers: { Authorization: `Bearer ${storedToken}` } })
+    axios.get(`${API_URL}/pets?species=${species}`, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then((response) => setCats(response.data.allCats))
     .catch((err) => console.log(err))
   };
 
   useEffect(() => {
     getAllCats();
-  }, []);
+  }, [species]);
 
 // Finction to calculate cat's age based on the birthdate, and the function is needed to make age categories for dropdown menu and filter
   const calculateCatsAge = (birthdate) => {

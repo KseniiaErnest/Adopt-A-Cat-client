@@ -24,7 +24,7 @@ export default function Navbar() {
 
       {isLoggedIn && (
         <>
-          <Link className="navbar-link-box" to="/cats">
+          <Link className="navbar-link-box" to="/pets">
             Cats
           </Link>
 
