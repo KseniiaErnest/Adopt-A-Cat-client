@@ -18,13 +18,13 @@ export default function Navbar() {
     <nav className="navbar-container">
       <img className="cat-logo-img" src="/catlogo3.png" alt="cat logo" />
 
-      <Link className="navbar-link-box" to="/home">
+      <Link className="navbar-link-box" to="/">
         Home
       </Link>
 
       {isLoggedIn && (
         <>
-          <Link className="navbar-link-box" to="/pets">
+          <Link className="navbar-link-box" to="/cats">
             Cats
           </Link>
 

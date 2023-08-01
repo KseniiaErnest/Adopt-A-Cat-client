@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import { useLocation } from 'react-router-dom';
+
 export default function HomePage() {
   const [catFact, setCatFact] = useState('');
+
 
   const getCatFact = () => {
     axios.get(`https://meowfacts.herokuapp.com/`)

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Filter from '../components/Filter';
 
@@ -9,26 +9,35 @@ const API_URL = "http://localhost:5005";
 export default function CatsPage() {
   const [cats, setCats] = useState([]);
 
-  /////////////////////////////////////
-  const { species } = useParams();
 
   // States for filter to keep track
   const [ageCategory, setAgeCategory] = useState('');
   const [gender, setGender] = useState('');
 
+
   const getAllCats = () => {
     // Get the token from the localStorage
-  const storedToken = localStorage.getItem("authToken");
-
-  // Send the token through the request "Authorization" Headers
-    axios.get(`${API_URL}/pets?species=${species}`, { headers: { Authorization: `Bearer ${storedToken}` } })
-    .then((response) => setCats(response.data.allCats))
-    .catch((err) => console.log(err))
+    const storedToken = localStorage.getItem("authToken");
+  
+    // Send the token through the request "Authorization" Headers
+    axios
+      .get(`${API_URL}/cats`, { headers: { Authorization: `Bearer ${storedToken}` } })
+      .then((response) => {
+        // Calculate the age category for each cat
+        const catsWithAgeCategory = response.data.allCats.map((cat) => ({
+          ...cat,
+          ageCategory: calculateCatsAge(cat.age),
+        }));
+  
+        // Set the cats state with the calculated age categories
+        setCats(catsWithAgeCategory);
+      })
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
     getAllCats();
-  }, [species]);
+  }, []);
 
 // Finction to calculate cat's age based on the birthdate, and the function is needed to make age categories for dropdown menu and filter
   const calculateCatsAge = (birthdate) => {
@@ -65,14 +74,6 @@ export default function CatsPage() {
     setGender(e.target.value);
   }; 
 
-  // Calculate age category for each cat
-  useEffect(() => {
-    if (cats.length > 0) {
-      setCats((prevCats) =>
-        prevCats.map((cat) => ({ ...cat, ageCategory: calculateCatsAge(cat.age) }))
-      );
-    }
-  }, [cats]);
 
   return (
     <div >

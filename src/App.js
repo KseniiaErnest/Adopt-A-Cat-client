@@ -1,6 +1,6 @@
 
 import './App.css';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
@@ -16,38 +16,38 @@ import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
-import LandingPage from './pages/LandingPage';
+// import LandingPage from './pages/LandingPage';
 
 
 function App() {
-  const location = useLocation();
 
   return (
     <div className="App">
 
-{/* Conditionaly render the Navbar */}
-    {location.pathname !== '/' && <Navbar/>}
-
+<Navbar/>
 
     <Routes>
 
-    <Route path='/' element={ <LandingPage /> }  />
-
-    <Route path='/home/:species' element={<HomePage />} />
-        <Route path='/pets/:species' element={<IsPrivate allowedRoles={['Cat Owner', 'Adopter']}><CatsPage /></IsPrivate>} />
-        <Route path='/pets/:petId/:species' element={<IsPrivate allowedRoles={['Cat Owner', 'Adopter']}><CatDetailsPage /></IsPrivate>} />
-        <Route path='/pets/add-a-cat/:species' element={<IsPrivate allowedRoles={['Cat Owner']}><AddCatPage /></IsPrivate>} />
-        <Route path='/pets/edit/:petId/:species' element={<IsPrivate allowedRoles={['Cat Owner']}><EditCatPages /></IsPrivate>} />
-        <Route path='/locations/:species' element={<IsPrivate allowedRoles={['Cat Owner', 'Adopter']}><LocationsPage /></IsPrivate>} />
-        <Route path='/locations/add-a-location/:species' element={<IsPrivate allowedRoles={['Cat Owner']}><AddLocationPage /></IsPrivate>} />
-        <Route path='/locations/:locationId/:species' element={<IsPrivate allowedRoles={['Cat Owner', 'Adopter']}><LocationDetailsPage /></IsPrivate>} />
-        <Route path='/locations/edit/:locationId/:species' element={<IsPrivate allowedRoles={['Cat Owner']}><EditLocationPage /></IsPrivate>} />
+    <Route path='/' element={<HomePage />} />
+        <Route path='/cats' element={<IsPrivate allowedRoles={['Cat Owner', 'Adopter']}><CatsPage /></IsPrivate>} />
+        <Route path='/cats/:catId' element={<IsPrivate allowedRoles={['Cat Owner', 'Adopter']}><CatDetailsPage /></IsPrivate>} />
+        <Route path='/cats/add-a-cat' element={<IsPrivate allowedRoles={['Cat Owner']}><AddCatPage /></IsPrivate>} />
+        <Route path='/cats/edit/:catId' element={<IsPrivate allowedRoles={['Cat Owner']}><EditCatPages /></IsPrivate>} />
+        <Route path='/locations' element={<IsPrivate allowedRoles={['Cat Owner', 'Adopter']}><LocationsPage /></IsPrivate>} />
+        <Route path='/locations/add-a-location' element={<IsPrivate allowedRoles={['Cat Owner']}><AddLocationPage /></IsPrivate>} />
+        <Route path='/locations/:locationId' element={<IsPrivate allowedRoles={['Cat Owner', 'Adopter']}><LocationDetailsPage /></IsPrivate>} />
+        <Route path='/locations/edit/:locationId' element={<IsPrivate allowedRoles={['Cat Owner']}><EditLocationPage /></IsPrivate>} />
         <Route path='/signup' element={<IsAnon><SignupPage /></IsAnon>} />
         <Route path='/login' element={<IsAnon><LoginPage /></IsAnon>} />
 
     </Routes>
+
     </div>
   );
 }
 
 export default App;
+
+
+
+
