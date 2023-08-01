@@ -18,7 +18,7 @@ export default function Navbar() {
     <nav className="navbar-container">
       <img className="cat-logo-img" src="/catlogo3.png" alt="cat logo" />
 
-      <Link className="navbar-link-box" to="/">
+      <Link className="navbar-link-box" to="/home">
         Home
       </Link>
 

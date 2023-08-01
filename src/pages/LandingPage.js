@@ -7,12 +7,12 @@ export default function LandingPage() {
   // Function to handle navigation to the Cats page
   const handleCats = () => {
     // Navigate to the '/home' route with the species query parameter set to 'Cat'
-    navigate('/home/Cat');
+    navigate('/home?species=Cat');
   };
 
   // Navigate to the '/home' route with the species query parameter set to 'Dog'
   const handleDogs = () => {
-navigate('/home/Dog');
+navigate('/home?species=Dog');
   }
   
   return (

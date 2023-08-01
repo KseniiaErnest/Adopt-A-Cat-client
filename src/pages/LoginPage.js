@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 
 
@@ -13,6 +13,8 @@ export default function LoginPage(props) {
   const [errorMessage, setErrorMessage] = useState(undefined);
 
 const navigate = useNavigate();
+
+const { species } = useParams();
 
 const { storeToken, authenticateUser } = useContext(AuthContext); 
 
@@ -32,7 +34,7 @@ const handleLoginSubmit = (e) => {
     
     authenticateUser();
 
-     navigate('/');
+     navigate(`/home/${species}`);
   })
   .catch((err) => {
     const errorDescription = err.response.data.message;
@@ -67,3 +69,5 @@ const handleLoginSubmit = (e) => {
     </div>
   )
 }
+
+
