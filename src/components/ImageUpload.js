@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ImageUpload({ images, setImages, maxImages = 5 }) {
   // The component recieves 3 props from AddCatPAge component:
-  // imaages: an array, setImages: lets update the images array, whenever the user enters a new URL
+  // images: an array, setImages: lets update the images array, whenever the user enters a new URL
   // maxImages: a prop that determines the max numbers of image inputs, by def 5
 
   const handleImageURL = (index, e) => {
@@ -34,3 +34,54 @@ export default function ImageUpload({ images, setImages, maxImages = 5 }) {
 // The method takes 2 arguments: 1st argument specifies the number of elements (based on maxImages the desired length is created), initially all elements are set to undefined ==>
 // 2nd argumet a mapping function to iterate over each element in the array, and for each iteration <div></div> element is returned. 
 // 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+// import React from 'react';
+// import axios from 'axios';
+
+// const API_URL = "http://localhost:5005";
+
+
+// export default function ImageUpload({ images, setImages, maxImages = 5 }) {
+
+//   const handleImageURL = (index, e) => {
+//     console.log({ files: e.target.files });
+//     const files = e.target.files;
+
+
+//     const uploadData = new FormData();
+
+//     for (let i = 0; i < files.length; i++) {
+//       uploadData.append('images', files[i]);
+//     }
+
+//   axios.post(`${API_URL}/cats`, uploadData, {
+//     headers: { "Content-Type": "multipart/form-data" },
+//     withCredentials: true,
+// })
+// .then((response) => {
+//   const updatedImages = response.data.images;
+
+//   setImages(updatedImages);
+//   setImages([]);
+// })
+//   .catch((err) => console.log({err}));
+
+//   };
+
+
+//   return (
+//     <div>
+//       {Array.from({ length: maxImages }).map((_, index) => (
+//         <div key={index}>
+//           <label htmlFor={`image${index + 1}`}>Image {index + 1} URL:</label>
+//           <input type='file' id={`image${index + 1}`} value={images[index] || ''} onChange={(e) => handleImageURL(index, e)} />
+
+//         </div>
+//       ))}
+//     </div>
+//   )
+// }
+
+
