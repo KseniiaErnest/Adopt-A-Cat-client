@@ -38,38 +38,47 @@ export default function SignupPage() {
   };
 
   return (
-    <div>
+    <div className='sign-up--grid' >
+
+    <div className='signup-container'>
       <h1>Sign Up</h1>
 
-      <form onSubmit={handleSignupSubmit}>
+      <form className='signup-form' onSubmit={handleSignupSubmit}>
 
-        <label>Email:</label>
-        <input type='email' name='email' value={email} onChange={handleEmail} />
+        
+        <input className='signup-input' type='email' name='email' value={email} onChange={handleEmail} placeholder='Email' />
 
-        <label>Password:</label>
-        <input type='password' name='password' value={password} onChange={handlePassword} />
+       
+        <input className='signup-input' type='password' name='password' value={password} onChange={handlePassword} placeholder='Password' />
 
-        <label>Username:</label>
-        <input type='text' name='username' value={username} onChange={handleUserName} />
+        <input className='signup-input' type='text' name='username' value={username} onChange={handleUserName} placeholder='Username' />
 
-        <label>Full name:</label>
-        <input type='text' name='fullName' value={fullName} onChange={handleFullName} />
+        <input className='signup-input' type='text' name='fullName' value={fullName} onChange={handleFullName} placeholder='Full name (optional)' />
 
-        <label>Role:</label>
+<div className='signup-role-box'>
+        <label>Please, choose role</label>
         <select id='role' value={role} onChange={handleRole}>
-          <option value=''>Please, select one</option>
+          <option value=''>Select one</option>
           <option value='Adopter'>Adopter</option>
           <option value='Cat Owner'>Cat Owner</option>
         </select>
 
-        <button type='submit'>Sign Up</button>
+        </div>
+
+        <button className='btn-all btn--signup' type='submit'><img src='/icons8-user-64.png' alt='user sighup icon'/>Sign Up</button>
 
         {errorMessage && <p>{errorMessage}</p>}
 
-        <p>Already have account?</p>
-        <Link to={'/login'} >Login</Link>
-
+<div>
+        <p className='signup-login-text'>Already have account?</p>
+        <Link className='login-link' to={'/login'} >Login</Link>
+</div>
       </form>
+      </div>
+
+      <div className='signup-img-container'>
+        <img />
+      </div>
     </div>
   )
 }

@@ -16,8 +16,20 @@ export default function Navbar() {
   //  Update the rendering logic to display different content depending on whether the user is logged in or not
   return (
     <nav className="navbar-container">
+
+    <div className="navbar-img-user-box">
       <img className="cat-logo-img" src="/catlogo3.png" alt="cat logo" />
 
+      {isLoggedIn && (
+        <>
+        {user && <span className="navbar-username">{user.username}</span>}
+          <button className="logout-btn" onClick={logOutUser}>Logout</button>
+        </>
+      )}
+
+      </div>
+     
+<div className="navbar-links-container">
       <Link className="navbar-link-box" to="/">
         Home
       </Link>
@@ -47,10 +59,7 @@ export default function Navbar() {
             Cats Owners
           </Link>
 
-         
-
-          {user && <span>{user.fullName}</span>}
-          <button onClick={logOutUser}>Logout</button>
+        
         </>
       )}
 
@@ -65,6 +74,8 @@ export default function Navbar() {
           </Link>
         </>
       )}
+
+      </div>
     </nav>
   );
 }
