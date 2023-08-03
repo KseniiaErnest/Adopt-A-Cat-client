@@ -1,15 +1,36 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Filter({ cats, ageCategory, handleAgeCategoryChange, gender, handleGenderChange }) {
-  
+export default function Filter({ cats, ageCategory, handleAgeCategoryChange }) {
+  // State for search
+  const [searchInput, setSearchInput] = useState('');
+
+  const [gender, setGender] = useState('');
+
+   // Function to handle gender change in the dropdown menu (onChange);
+   // Triggered when the user selects an option, update gender state
+   const handleGenderChange = (e) => {
+    setGender(e.target.value);
+  }; 
+
+
+  // Search handle
+const handleSearch = (e) => {
+  const newSearch = e.target.value;
+  setSearchInput(newSearch);
+}
 
   // The variable to hold filtered results
   const filteredCats = 
   (ageCategory ? cats.filter((cat) => cat.ageCategory === ageCategory) : cats)
-  .filter((cat) => (!gender || cat.gender === gender));
+  .filter((cat) => (!gender || cat.gender === gender))
+  .filter((cat) => cat.name.toLowerCase().includes(searchInput.toLowerCase()))
 
   return (
+    <div>
+
+    <div className='filter-search-container'>
+
     <div>
       <label>
         Age Filter:
@@ -31,7 +52,13 @@ export default function Filter({ cats, ageCategory, handleAgeCategoryChange, gen
         </select>
       </label>
 
-      <div className='cats-page-container'>
+      </div>
+
+      <input className='search-bar' type='text' onChange={(e) => handleSearch(e)} placeholder='Search' />
+
+      </div>
+
+      <div className='cats-page-container' >
       {filteredCats.map((cat) => {
           return (
             <div className='cat-box' key={cat._id}>

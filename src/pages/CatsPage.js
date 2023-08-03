@@ -9,10 +9,8 @@ const API_URL = "http://localhost:5005";
 export default function CatsPage() {
   const [cats, setCats] = useState([]);
 
-
   // States for filter to keep track
   const [ageCategory, setAgeCategory] = useState('');
-  const [gender, setGender] = useState('');
 
 
   const getAllCats = () => {
@@ -60,7 +58,6 @@ export default function CatsPage() {
   };
 
 
-  // Filter handles
 
   // Function to handle age category change in the dropdown menu (onChange);
   // Triggered when the user selects an option, update ageCategory state
@@ -68,16 +65,12 @@ export default function CatsPage() {
     setAgeCategory(event.target.value);
   };
 
-  // Function to handle gender change in the dropdown menu (onChange);
-   // Triggered when the user selects an option, update gender state
-  const handleGenderChange = (e) => {
-    setGender(e.target.value);
-  }; 
+ 
 
 
   return (
-    <div >
-      <Filter cats={cats} ageCategory={ageCategory} handleAgeCategoryChange={handleAgeCategoryChange} gender={gender} handleGenderChange={handleGenderChange} />
+    <div className='all-cats--page' >
+      <Filter cats={cats} ageCategory={ageCategory} handleAgeCategoryChange={handleAgeCategoryChange} />
     </div>
   )
 }
