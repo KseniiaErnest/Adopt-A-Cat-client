@@ -197,9 +197,43 @@ padding: 1rem;
   margin-top: 2.5rem;
 }
 
+.filter-box {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #0B1350;
+  font-weight: 500;
+}
+
+.filter-box select {
+  margin-left: 0.5rem;
+  padding: 3px 7px;
+  border-radius: 7px;
+  border: 1px solid #ed8f5d49;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  color: #0B1350;
+  background-color: #ed8f5d44;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.filter-box select {
+  font-size: 1.2rem;
+  width: 9rem;
+}
+
 .search-bar {
   padding: 0.5rem;
-  border-radius: 11px;
+  border-radius: 7px;
+  width: 20%;
+  font-size: 1.2rem;
+  font-family: 'Fredoka', sans-serif;
+  color: #0B1350;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  background-color: #ed8f5d44;
+  border: 1px solid #ed8f5d49;
+
+
 }
 
 /* ADD CAT */

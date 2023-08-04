@@ -24,7 +24,7 @@ export default function LocationsPage() {
 
   return (
     <div className='locations-container'>
-    <h1 className='big-heading'>Cats Owners</h1>
+    <h1 className='big-heading'>Pet's Shelters</h1>
     <ul>
       {locations.map((location) => {
         return (

@@ -64,7 +64,7 @@ const isUserAssociatedWithLocation = locationDetails && locationDetails.createdB
             return (
               <div key={cat._id}>
               <p>{cat.name}</p>
-              <img src={cat.image[0]} alt='Cat pic' />
+              <img src={cat.images[0]} alt='Cat pic' />
               </div>
             )
            

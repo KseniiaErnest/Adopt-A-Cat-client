@@ -31,9 +31,8 @@ const handleSearch = (e) => {
 
     <div className='filter-search-container'>
 
-    <div>
-      <label>
-        Age Filter:
+    <div className='filter-box'>
+      <label> Age filter:
         <select value={ageCategory} onChange={handleAgeCategoryChange}>
           <option value=''>All</option>
           <option value='Kitten'>Kitten</option>
@@ -41,16 +40,16 @@ const handleSearch = (e) => {
           <option value='Adult'>Adult</option>
           <option value='Senior'>Senior</option>
         </select>
-      </label>
+        </label>
+      
 
-      <label>
-        Gender filter:
+      <label>Gender filter: 
         <select value={gender} onChange={handleGenderChange}>
           <option value=''>All</option>
           <option value='Male'>Male</option>
           <option value='Female'>Female</option>
         </select>
-      </label>
+        </label>
 
       </div>
 

@@ -44,11 +44,11 @@ export default function Navbar() {
   <>
   
   <Link className="navbar-link-box" to="/cats/add-a-cat">
-            Add a Cat
+            Add Cat
           </Link>
 
           <Link className="navbar-link-box" to="/locations/add-a-location">
-            Add a Location
+            Add Shelter
           </Link>
 
           </>
@@ -56,7 +56,7 @@ export default function Navbar() {
           
 
           <Link className="navbar-link-box" to="/locations">
-            Cats Owners
+            Pet's Shelters
           </Link>
 
         
