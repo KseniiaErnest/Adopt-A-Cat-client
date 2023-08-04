@@ -146,8 +146,9 @@
 
 /////////////////////////////////////////////////////////////////////////////////
 
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import { AuthContext } from '../context/auth.context';
 
 import { useParams } from 'react-router-dom';
 
@@ -164,23 +165,44 @@ export default function AddCatPage() {
   const [availability, setAvailability] = useState('');
   const [images, setImages] = useState([]);
   const [dateOfEntry, setDateOfEntry] = useState(new Date());
-  const [location, setLocation] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState('');
+  const [userLocations, setUserLocations] = useState([]);
  
 
  // Get the token from the localStorage
  const storedToken = localStorage.getItem('authToken');
 
- const { locationId } = useParams();
+const { user } = useContext(AuthContext);
 
 // Fetching location from the server
+// useEffect(() => {
+//   axios.get(`${API_URL}/locations/${locationId}`, { headers: { Authorization: `Bearer ${storedToken}` } })
+//   .then((response) => {
+//     console.log(response.data);
+//     setSelectedLocation(response.data.oneLocation._id);
+//   })
+//   .catch((err) => console.log(err));
+// }, []);
+
+// useEffect(() => {
+//   axios.get(`${API_URL}/locations`, { headers: { Authorization: `Bearer ${storedToken}` } })
+//     .then((response) => {
+//       console.log(response.data);
+//       const userLocations = response.data.allLocations.filter(location => String(location.createdBy) === String(user._id));
+//       setSelectedLocation(userLocations); 
+//     })
+//     .catch((err) => console.log(err));
+// }, [user._id]);
+
 useEffect(() => {
-  axios.get(`${API_URL}/locations/${locationId}`, { headers: { Authorization: `Bearer ${storedToken}` } })
-  .then((response) => {
-    console.log(response.data);
-    setLocation(response.data.oneLocation._id);
-  })
-  .catch((err) => console.log(err));
-}, []);
+  axios.get(`${API_URL}/locations`, { headers: { Authorization: `Bearer ${storedToken}` } })
+    .then((response) => {
+      const filteredLocations = response.data.allLocations.filter(location => String(location.createdBy) === String(user._id));
+      setUserLocations(filteredLocations); // Save the filtered user locations in the state
+      setSelectedLocation(filteredLocations[0]?._id || ''); // Set the first user's location as the initial selectedLocation
+    })
+    .catch((err) => console.log(err));
+}, [user._id]);
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -203,7 +225,7 @@ const handleSubmit = (e) => {
   }
 
   uploadData.append('dateOfEntry', formattedDateOfEntry);
-  uploadData.append('location', location);
+  uploadData.append('selectedLocation', selectedLocation);
   
 
   // Send the token through the request "Authorization" Headers
@@ -223,7 +245,7 @@ const handleSubmit = (e) => {
     setAvailability('');
     setImages([]);
     setDateOfEntry(new Date());
-    setLocation('');
+    setSelectedLocation('');
    
 
   })
@@ -290,11 +312,48 @@ const handleImages = (e) => {
 </div>        
 
 
-
 <div className='form-box'>
         <label>Cat's date of entry into the system</label>
         <input type='date' name='dateOfEntry' value={dateOfEntry} onChange={(e) => setDateOfEntry(e.target.value)} />
 </div>
+
+{/* <div className='form-box'>
+       <label>Cat is belong to:</label>
+        <select value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)}>
+            <option value=''>Select a location</option>
+             {selectedLocation.filter((location) => String(location.createdBy) === String(user._id)).map((location) => {
+              return (
+                 <option key={location._id} value={location._id}>
+                   {location.name}
+                 </option>
+              );
+             })}
+          </select>
+ </div> */}
+
+ {/* <div className='form-box'>
+  <label>Cat is belong to:</label>
+  <select value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)}>
+    <option value=''>Select a location</option>
+    {selectedLocation.map((location) => (
+      <option key={location._id} value={location._id}>
+        {location.name}
+      </option>
+    ))}
+  </select>
+</div> */}
+
+<div className='form-box'>
+          <label>Cat is belong to:</label>
+          <select value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)}>
+            <option value=''>Select a location</option>
+            {userLocations.map(location => (
+              <option key={location._id} value={location._id}>
+                {location.name}
+              </option>
+            ))}
+          </select>
+        </div>
 
 <input type='file' name='images' onChange={handleImages} multiple />
 
