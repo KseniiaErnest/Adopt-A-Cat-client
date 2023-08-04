@@ -305,10 +305,10 @@ axios.delete(`${API_URL}/cats/${catId}`, { headers: { Authorization: `Bearer ${s
 </div>
 
 
-<div>
+<div className='upload-img-container'>
   {images.map((image, index) => {
     return (
-      <img src={image} alt='image{index}' key={index} />
+      <img className='cat-img-upload' src={image} alt='image{index}' key={index} />
     )
   })}
 </div>
@@ -321,7 +321,7 @@ Add Images to add to cat collection:{" "}
         <button className='btn'>Submit Cat's Information</button>
 
       </form>
-      <button onClick={deleteCatInfo}>Delete Information</button>
+      <button className='btn delete--option' onClick={deleteCatInfo}>Delete Information</button>
     </div>
     </div>
   )

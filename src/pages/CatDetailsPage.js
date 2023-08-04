@@ -70,11 +70,11 @@ export default function CatDetailsPage() {
 
       </div>
 
-          <div className='cat-details-img-box' >
+          
          
-            <Carousel images={catDetails.images} />
+      <Carousel images={catDetails.images} />
         
-          </div>
+
 
         </div>
       )}
