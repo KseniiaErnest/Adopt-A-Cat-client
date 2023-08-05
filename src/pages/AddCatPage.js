@@ -207,7 +207,7 @@ const handleSubmit = (e) => {
   }
 
   uploadData.append('dateOfEntry', formattedDateOfEntry);
-  uploadData.append('selectedLocation', selectedLocation);
+  uploadData.append('location', selectedLocation);
 
   console.log('Selected location ID:', selectedLocation);
   

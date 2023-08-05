@@ -236,6 +236,21 @@ const handleMultipleImages = (event) => {
   .catch((err) => console.log(err))
 }
 
+// Delete image
+const handleImageDelete = (event, image) => {
+  event.preventDefault();
+
+
+  axios.patch(`${API_URL}/cats/${catId}/deleteimages`, { images: [image] }, {
+    headers: { Authorization: `Bearer ${storedToken}`},
+    withCredentials: true,
+  })
+  .then((response) => {
+    setImages(response.data.updatedCat.images);
+  })
+  .catch((err) => console.log(err));
+};
+
  // Send the token through the request "Authorization" Headers
 const deleteCatInfo = () => {
 // Make a DELETE request to delete the cat infromation
@@ -308,7 +323,10 @@ axios.delete(`${API_URL}/cats/${catId}`, { headers: { Authorization: `Bearer ${s
 <div className='upload-img-container'>
   {images.map((image, index) => {
     return (
-      <img className='cat-img-upload' src={image} alt='image{index}' key={index} />
+      <div key={index} >
+      <img className='cat-img-upload' src={image} alt={`image-${index}`}  />
+      <button onClick={(event) => handleImageDelete(event, image)}>Delete</button>
+      </div>
     )
   })}
 </div>
