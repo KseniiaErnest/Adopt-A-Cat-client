@@ -114,8 +114,13 @@
   display: grid;
   grid-template-columns:  0.5fr 1fr;
   margin: 0 auto;
-  align-items: center;
+  align-items:center;
   padding: 1rem;
+}
+
+.grid--start {
+  align-items: start;
+  gap: 2rem;
 }
 
 .home-container-two img {
@@ -386,8 +391,35 @@ gap: 1.5rem;
 
 
 /* LOCATION DETAILS */
-.cats-photo-container {
-  
+
+/* .cats-photo--gallery {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1rem;
+padding: 1.2rem;
+} */
+
+.cats-photo--gallery {
+  column-count: 4;
+  column-gap: 1rem;
+}
+
+.gallery-item {
+  overflow: hidden;
+  /* height: 12rem ; */
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit:cover;
+  transition: all 0.4s;
+  margin-bottom: 1rem;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.1);
 }
 
 

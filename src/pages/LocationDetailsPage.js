@@ -37,7 +37,7 @@ const isUserAssociatedWithLocation = locationDetails && locationDetails.createdB
   return (
     <div className='section'>
     {locationDetails && (
-      <div className='home-grid'>
+      <div className='home-grid grid--start'>
 
       <div className='cat-details-info-box'>
         <h2>Name: {locationDetails.name}</h2>
@@ -56,23 +56,24 @@ const isUserAssociatedWithLocation = locationDetails && locationDetails.createdB
 
     </div>
         </div>
-<div className='cats-photo-container'>
-        <p>Cats:</p>
-        <div>
-        <ul>
+
+<div className='cats-photo--gallery'>
+
+        
           {locationDetails.cats.map((cat) => {
             return (
-              <div key={cat._id}>
-              <p>{cat.name}</p>
+              <div>
+              <figure className='gallery-item' key={cat._id}>
               <img src={cat.images[0]} alt='Cat pic' />
+              </figure>
               </div>
             )
            
           })}
-        </ul>
-        </div>
+        
 
-        </div>
+</div>
+
 
       </div>
     )}
