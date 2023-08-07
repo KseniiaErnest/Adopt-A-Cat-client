@@ -16,7 +16,7 @@ import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
-// import LandingPage from './pages/LandingPage';
+import StickyNavBar from './components/StickyNavBar';
 
 
 function App() {
@@ -24,7 +24,8 @@ function App() {
   return (
     <div className="App">
 
-<Navbar/>
+{/* <Navbar/> */}
+<StickyNavBar />
 
     <Routes>
 

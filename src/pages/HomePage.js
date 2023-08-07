@@ -17,19 +17,24 @@ export default function HomePage() {
 
 
   return (
+    <section className='section-hero'>
+
     <div className='home-grid'>
-      <div className='home-container-one'>
-<p>jfjfjkjgkvjckfkdgjfdlgjfdklgfldgjlfdblfkdmlkfdgjkfldgjlfdgldfgjlfdgjl</p>
-<button>Sign Up</button>
+
+<div className='home-container-one'>   
+<p className='home-text'>jfjfjkjgkvjckgddgddfkdgjfdlgjfdklgfldgjlfdblfkdmlkfdgjkfldgjlfdgldfgjlfdgjl</p>
+<button className='btn-all btn--singup'>Sign Up</button>
 <h2>Here is some fact about cats!</h2>
-<button onClick={getCatFact}>Get a fact</button>
-<p>{catFact}</p>
+<button className='btn-all btn--get-fact' onClick={getCatFact}>Get a fact</button>
+<p className='api-fact'>{catFact}</p>
+</div>
 
-      </div>
+<div className='home-container-two'>
+<img src='/Orange White Simple Cat Day Instagram Post smaller.png' alt='Cat illustration' />
+</div>
 
-      <div className='home-container-two'>
-<img src='/Orange White Simple Cat Day Instagram Post (1).png' alt='Cat illustration' />
-      </div>
-    </div>
+</div>
+
+    </section>
   )
 }

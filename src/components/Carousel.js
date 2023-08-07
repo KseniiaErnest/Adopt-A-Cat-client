@@ -17,7 +17,9 @@ export default function Carousel( {images} ) {
   return (
     <div className='carousel-container'>
     <button className='icon-direction-btn' onClick={handleLeftClick}><img className='icon-direction' src='/icons8-arrow-left-64.png' alt='icon-left' /></button>
-      <img className='cat-box-img' src={images[currentImageIndex]} alt='Photos of the cat' />
+      <div className='img-div'>
+      <img className='carousel-img' src={images[currentImageIndex]} alt='Photos of the cat' />
+      </div>
       <button className='icon-direction-btn' onClick={handleRightClick}><img className='icon-direction' src='/icons8-arrow-right-64.png' alt='icon-right' /></button>
     </div>
   )
