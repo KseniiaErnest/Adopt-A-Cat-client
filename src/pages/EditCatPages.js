@@ -323,17 +323,17 @@ axios.delete(`${API_URL}/cats/${catId}`, { headers: { Authorization: `Bearer ${s
 <div className='upload-img-container'>
   {images.map((image, index) => {
     return (
-      <div key={index} >
+      <div className='upload-img-box' key={index} >
       <img className='cat-img-upload' src={image} alt={`image-${index}`}  />
-      <button onClick={(event) => handleImageDelete(event, image)}>Delete</button>
+      <button className='upload-img-delete--btn' onClick={(event) => handleImageDelete(event, image)}>Delete</button>
       </div>
     )
   })}
 </div>
 
-<label> 
-Add Images to add to cat collection:{" "}
-<input id='imageInput' type='file' name='images' multiple onChange={(event) => handleMultipleImages(event)} />
+<label className='edit-page-upload-img'> 
+Add images to the collection
+<input id='imageInput' type='file' name='images' multiple onChange={(event) => handleMultipleImages(event)} className='upload-pet' />
 </label>
 
         <button className='btn'>Submit Cat's Information</button>

@@ -313,7 +313,7 @@ const handleImages = (e) => {
           </select>
         </div>
 
-<input type='file' name='images' onChange={handleImages} multiple />
+<input type='file' name='images' onChange={handleImages} multiple className='upload-pet' />
 
         <button className='btn'>Submit Cat's Information</button>
 

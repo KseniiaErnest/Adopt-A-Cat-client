@@ -29,7 +29,7 @@ export default function LocationsPage() {
       {locations.map((location) => {
         return (
 <div className='location-box' key={location._id}>
-<img src='/icons8-cat-62.png' alt='cat icon' />
+<img src='/icons8-heart-with-dog-paw-48.png' alt='cat icon' />
 <Link className='cat-box-link' to={`/locations/${location._id}`}><h2>{location.name}</h2></Link>
 </div>
         )
