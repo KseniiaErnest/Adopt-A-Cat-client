@@ -1,17 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import '../App.css';
+import LoginPage from "../pages/LoginPage";
+
 
 export default function Navbar() {
   // Subscribe to the AuthContext to gain access to the values from AuthContext.Provider `value` prop.
   const { isLoggedIn, user, logOutUser, role } = useContext(AuthContext);
 
+ // State to manage the visibility of the login modal 
+  const [openModal, setOpenModal] = useState(false);
+
+ // Function to close the login modal
+  const handleModalClose = () => {
+    setOpenModal(false);
+  };
+  
   // Add console.log statements to check the login status
   console.log('isLoggedIn:', isLoggedIn);
   console.log('user:', user);
 
+  // Sticky Navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      const navbar = document.querySelector('.navbar-container');
+      const app = document.querySelector('.App');
 
+      if (window.pageYOffset > 0) {
+        navbar.classList.add('sticky');
+        app.classList.add('scroll');
+      } else {
+        navbar.classList.remove('sticky');
+        app.classList.remove('scroll');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   //  Update the rendering logic to display different content depending on whether the user is logged in or not
   return (
@@ -69,9 +99,13 @@ export default function Navbar() {
             Sign Up
           </Link>
 
-          <Link className="navbar-link-box" to="/login">
+          {/* <Link className="navbar-link-box" to="/login">
             Login
-          </Link>
+          </Link> */}
+
+          <button className="openModal" onClick={() => {setOpenModal(true)}}>Login</button>
+          {openModal && <LoginPage closeModal={handleModalClose} />}
+
         </>
       )}
 

@@ -1,6 +1,7 @@
-
+import React, { useState } from 'react';
 import './App.css';
 import { Routes, Route, } from 'react-router-dom';
+
 
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
@@ -16,16 +17,15 @@ import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
-import StickyNavBar from './components/StickyNavBar';
 
 
 function App() {
 
+
   return (
     <div className="App">
 
-{/* <Navbar/> */}
-<StickyNavBar />
+<Navbar />
 
     <Routes>
 
