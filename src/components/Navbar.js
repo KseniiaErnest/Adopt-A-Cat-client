@@ -70,6 +70,12 @@ export default function Navbar() {
             Cats
           </Link>
 
+          <Link className="navbar-link-box" to="/userId">
+            User Profile
+          </Link>
+
+          
+
 {role === 'Cat Owner' && (
   <>
   
