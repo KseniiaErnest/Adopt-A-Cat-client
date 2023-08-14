@@ -123,16 +123,18 @@
 
 .section-hero {
   background-color: #FFEDE2;
-  padding: 1rem 0 0 0;
+  padding: 2rem 0 0 0;
 }
 
 .home-grid {
-  max-width: 95rem;
+  max-width: 100rem;
   margin: 0 auto;
   display: grid;
   grid-template-columns:  0.5fr 1fr;
   align-items:center;
   padding: 0 1.5rem;
+
+  gap: 4rem;
 }
 
 .grid--start {
@@ -140,15 +142,16 @@
   gap: 2rem;
 }
 
+.home-container-two {
+ padding: 1rem;
+}
+
 .home-container-two img {
-  width: 84%;
-  object-fit: cover;
+  width: 74%;
 }
 
 .home-container-one {
   background-color: #ED905D;
-  /* display: flex;
-  flex-direction: column; */
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   padding: 1rem;
@@ -530,7 +533,7 @@ padding: 1.2rem;
 
 .sign-up--grid {
   display: grid;
-  grid-template-columns: 0.5fr 1fr;
+  grid-template-columns: 0.7fr 1fr;
   width: 70vw;
   margin: 0 auto;
   margin-top: 4rem;
@@ -543,7 +546,7 @@ padding: 1.2rem;
 .signup-container {
   background-color: #ED905D;
   width: 100%;
-  padding: 1.5rem 0;
+  padding: 1.5rem 1.7rem;
 }
 
 .signup-container h1 {
@@ -623,20 +626,6 @@ box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   margin-top: 1rem;
 }
 
-.login-link:link,
-.login-link:visited {
-  text-decoration: none;
-  color: #0B1350;
-  font-size: 1.5rem;
-  font-weight: 600;
-  transition: all 0.5s;
-}
-
-.login-link:hover,
-.login-link:active {
-  color: #FFEDE2;
-}
-
 /* EDIT CAT UPLOAD */
 .upload-img-container {
   display: flex;
@@ -689,43 +678,12 @@ box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 
 
 
-/* .login-form{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.form-box{
-  margin-top: 7vh;
-  opacity:80%;
-  background: black;
-  padding-right: 80px;
-  padding-left: 80px;
-  border-radius: 20px;
-  box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.2);
-}
-
-.show {
-  display: block;
-  transition: 800ms;
-  opacity: 1;
-}
-
-.show.active {
-  transform: translateY(100px) scale(0) rotateY(180deg);
-  opacity: 0;
-} */
-
-
  .openModalBtn {
-  width: 200px;
-  height: 40px;
+  background-color: #0B1350;
   border: none;
-  border-radius: 6px;
-  background-color: cornflowerblue;
-  color: white;
+  font-size: 2rem;
+  font-family: 'Fredoka', sans-serif;
+  color: #ED905D;
   cursor: pointer;
 }
 
@@ -743,8 +701,94 @@ box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
 .modalContainer {
-  background-color: white;
-  padding: 20px;
+  background-color: #FFEDE2;
+  padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  color: #0B1350;
 }
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  gap: 0.5rem;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.login-form input {
+padding: 5px 7px;
+font-size: 1rem;
+border-radius: 5px;
+border: none;
+background-color: #ed8f5d83;
+box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+margin-right: 7px;
+color: #0B1350;
+font-weight: 500;
+}
+
+.login-btn {
+  font-size: 1.2rem;
+  width: 5rem;
+  border-radius: 5px;
+  padding: 5px 7px;
+  font-weight: 700;
+  border: none;
+  background-color: #0B1350;
+  color: #ED905D;
+  margin-top: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  box-shadow: rgb(11, 19, 80, 0.4) 5px 5px, rgb(11, 19, 80, 0.3) 10px 10px, rgb(11, 19, 80, 0.2) 15px 15px, rgb(11, 19, 80, 0.1) 20px 20px, rgb(11, 19, 80, 0.05) 25px 25px;
+}
+
+.login-container p {
+  margin-top: 1rem;
+}
+
+
+.sign-up-link:link,
+.sign-up-link:visited {
+  text-decoration: none;
+  color: #0B1350;
+  font-size: 2rem;
+  font-weight: 600;
+  transition: all 0.5s;
+}
+
+.sign-up-link:hover,
+.sign-up-link:active {
+  color: #ED905D;
+}
+
+.close-login-btn {
+  font-size: 1.1rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+  background-color: #ED905D;
+  color: #0B1350;
+  font-weight: 600;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  transition: all 0.3s;
+}
+
+.close-login-btn:active {
+  transform: translateY(4px);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px 0px;
+  filter: brightness(95%);
+}
+
+

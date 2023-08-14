@@ -77,8 +77,12 @@ export default function SignupPage() {
       </form>
       </div>
 
-      <div className='signup-img-container'>
-        <img />
+      <div className='signup-img-container' style={{
+        backgroundImage: 'url(/cats3.png)',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+        }}>
+        {/* <img /> */}
       </div>
     </div>
   )

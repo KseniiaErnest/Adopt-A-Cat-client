@@ -30,7 +30,8 @@ export default function HomePage() {
 </div>
 
 <div className='home-container-two'>
-<img src='/Orange White Simple Cat Day Instagram Post smaller.png' alt='Cat illustration' />
+<img src='/cat-homepage.png' alt='Cat illustration' />
+
 </div>
 
 </div>
