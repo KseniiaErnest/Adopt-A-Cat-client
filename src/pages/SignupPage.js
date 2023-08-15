@@ -38,6 +38,8 @@ export default function SignupPage() {
     })
   };
 
+
+
   return (
     <div className='sign-up--grid' >
 
@@ -71,18 +73,18 @@ export default function SignupPage() {
         {errorMessage && <p>{errorMessage}</p>}
 
 <div>
-        <p className='signup-login-text'>Already have account?</p>
-        <Link className='login-link' to={'/login'} >Login</Link>
+        {/* <p className='signup-login-text'>Already have account?</p> */}
+        {/* <Link className='login-link' to={'/login'} >Login</Link> */}
+        
 </div>
       </form>
       </div>
 
       <div className='signup-img-container' style={{
-        backgroundImage: 'url(/cats3.png)',
+        backgroundImage: 'url(/cats-many.png)',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
         }}>
-        {/* <img /> */}
       </div>
     </div>
   )

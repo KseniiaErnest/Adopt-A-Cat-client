@@ -123,11 +123,14 @@
 
 .section-hero {
   background-color: #FFEDE2;
-  padding: 2rem 0 0 0;
+  padding: 2rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.home-grid {
-  max-width: 100rem;
+/* .home-grid {
+  width: 80vw;
   margin: 0 auto;
   display: grid;
   grid-template-columns:  0.5fr 1fr;
@@ -135,7 +138,39 @@
   padding: 0 1.5rem;
 
   gap: 4rem;
+
+  overflow: auto;
+} */
+
+/* .home-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 90%;
+  height: 43rem;
+  margin: 0 auto;
+  overflow:auto;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-top: 1.5rem;
+} */
+
+.home-container {
+  display: flex;
+  height: 92vh;
 }
+
+
+
+
+/* .hero-img-container {
+  width: 100%; 
+  height: 100%; 
+} */
+
+.hero-img-container {
+  width: 100%;
+}
+
 
 .grid--start {
   align-items: start;
@@ -150,14 +185,19 @@
   width: 74%;
 }
 
-.home-container-one {
+/* .home-container-one {
   background-color: #ED905D;
-  border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   padding: 1rem;
   width: 100%;
   overflow: hidden;
+} */
+
+.home-container-one {
+  width: 40%;
 }
+
+
 
 .home-text {
   font-size: 1.4rem;
@@ -305,8 +345,7 @@ padding: 1rem;
 
 .big-container {
   background-color: #FFEDE2;
-  padding: 1rem;
-  min-height: 100vh;
+  padding:  1rem ;
 }
 
 .big-heading {
@@ -420,9 +459,8 @@ padding: 1rem;
 
 .locations-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
+  justify-content: space-evenly;
+  padding: 2.5rem 1rem 1rem 1rem; 
 }
 
 .location-box {
@@ -536,7 +574,7 @@ padding: 1.2rem;
   grid-template-columns: 0.7fr 1fr;
   width: 70vw;
   margin: 0 auto;
-  margin-top: 4rem;
+  margin-top: 7rem;
   overflow: auto;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -544,14 +582,14 @@ padding: 1.2rem;
 }
 
 .signup-container {
-  background-color: #ED905D;
+  background-color: #0B1350;
   width: 100%;
   padding: 1.5rem 1.7rem;
 }
 
 .signup-container h1 {
   font-size: 2.7rem;
-  color: #0B1350;
+  color: #ED905D;
 }
 
 .signup-form {
@@ -589,7 +627,7 @@ box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 .signup-role-box label {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #0B1350;
+  color: #ED905D;
 }
 
 .signup-role-box select {
@@ -604,8 +642,8 @@ box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
 .btn--signup {
-  background-color: #0B1350;
-  color: #FFEDE2;
+  background-color: #ED905D;
+  color: #0B1350;
   font-size: 1.4rem;
   display: flex;
   align-items: center;

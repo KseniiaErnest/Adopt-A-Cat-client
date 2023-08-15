@@ -63,11 +63,9 @@ const handleSearch = (e) => {
             <div className='cat-box' key={cat._id}>
               <img className='cat-box-img' src={cat.images[0]} alt='Cat intro pic' />
               <div className='cat-box-link-and-img'>
-                {/* <img className='paw-icon' src='/icons8-cat-footprint-50.png' alt='Cat paw icon' /> */}
                 <Link className='cat-box-link' to={`/cats/${cat._id}`}>
                   <h2>{cat.name}</h2>
                 </Link>
-                {/* <img className='paw-icon' src='/icons8-cat-footprint-50.png' alt='Cat paw icon' /> */}
               </div>
             </div>
           );

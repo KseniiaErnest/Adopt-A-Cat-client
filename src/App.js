@@ -19,10 +19,13 @@ import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 
 
+
 function App() {
 
 
   return (
+    
+
     <div className="App">
 
 <Navbar />
@@ -44,6 +47,7 @@ function App() {
     </Routes>
 
     </div>
+
   );
 }
 

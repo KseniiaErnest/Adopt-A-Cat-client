@@ -137,7 +137,7 @@ const handleLoginSubmit = (e) => {
   {errorMessage && <p>{errorMessage}</p>}
 
   <p>Don't have an account yet?</p>
-  <Link className='sign-up-link' to={'/signup'} >Sign Up</Link>
+  <Link className='sign-up-link' to={'/signup'} onClick={closeModal} >Sign Up</Link>
 
 </form>
 

@@ -13,10 +13,12 @@ export default function Navbar() {
  // State to manage the visibility of the login modal 
   const [openModal, setOpenModal] = useState(false);
 
+
  // Function to close the login modal
   const handleModalClose = () => {
     setOpenModal(false);
   };
+
   
   // Add console.log statements to check the login status
   console.log('isLoggedIn:', isLoggedIn);
@@ -104,6 +106,7 @@ export default function Navbar() {
           </Link> */}
 
           <button className="openModalBtn" onClick={() => {setOpenModal(true)}}>Login</button>
+          
           {openModal && <LoginPage closeModal={handleModalClose} />}
 
         </>
