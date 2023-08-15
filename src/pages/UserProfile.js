@@ -7,11 +7,16 @@ const API_URL = "http://localhost:5005";
 
 export default function UserProfile() {
   const { user } = useContext(AuthContext);
+  const { setUser } = useContext(AuthContext);
+
   console.log('User for AuthContext:', user);
-  const [username, setUserName] = useState(user.username);
-  const [fullName, setFullName] = useState(user.fullName);
-  const [preferredSpecies, setPreferredSpecies] = useState(user.preferredSpecies);
-  // const [newPreferredSpecies, setNewPreferredSpecies] = useState('');
+
+  const userData = user.payload;
+  console.log(userData._id);
+
+  const [username, setUserName] = useState(userData.username);
+  const [fullName, setFullName] = useState(userData.fullName);
+  const [preferredSpecies, setPreferredSpecies] = useState(userData.preferredSpecies);
 
   const navigate = useNavigate();
   
@@ -23,9 +28,12 @@ const handleFormSubmitUser = (e) => {
 e.preventDefault();
 
 const requestBody = { username, fullName, preferredSpecies};
+const userId = userData._id;
 
-axios.put(`${API_URL}/auth/${user._id}`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
+axios.put(`${API_URL}/auth/${userId}`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
 .then((response) => {
+  setUser(response.data.UserToUpdate);
+  console.log('User profile updated successfully:', response.data);
   navigate('/');
 })
 .catch((err) => console.log(err))

@@ -70,6 +70,7 @@ function AuthProviderWrapper(props) {
 
     navigate('/');
   };
+
  
   
   useEffect(() => {                                      
@@ -77,7 +78,7 @@ function AuthProviderWrapper(props) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, isLoading, user, storeToken, authenticateUser, logOutUser, role }}>
+    <AuthContext.Provider value={{ isLoggedIn, isLoading, user, storeToken, authenticateUser, logOutUser, role, setUser }}>
       {props.children}
     </AuthContext.Provider>
   )
