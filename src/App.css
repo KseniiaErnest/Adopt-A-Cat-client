@@ -5,13 +5,16 @@
   box-sizing: border-box;
 }
 
-.App {
-  text-align: center;
+body, html, #root {
   font-family: 'Fredoka', sans-serif;
-  background-color: #FFEDE2;
-  font-size: 100%;
+}
+
+
+.App {
   width: 100%;
   min-height: 100vh;
+  background-color: #FFEDE2;
+  text-align: center;
 }
 
 
@@ -27,6 +30,7 @@
     transform: rotate(360deg);
   }
 }
+
 
 
 
@@ -58,9 +62,6 @@
   filter: brightness(90%);
 }
 
-.margin--top {
-  margin-top: 1rem;
-}
 
 
 /* NAVBAR */
@@ -87,12 +88,10 @@
 }
 
 .logout-btn {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-family: 'Fredoka', sans-serif;
-  background-color: #FFEDE2;
-  padding: 3px 7px;
-  color: #0B1350;
-  border-radius: 7px;
+  background-color: #0B1350;
+  color: #ED905D;
   border: none;
   margin-left: 1rem;
 }
@@ -272,8 +271,10 @@ height: 2.5rem;
 
 .all-cats--page {
   background-color: #FFEDE2;
-  min-height: 100vh;
+  width: 100%;
+  
 }
+
 .cats-page-container {
 display: flex;
 flex-wrap: wrap;
@@ -326,7 +327,7 @@ padding: 1rem;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  margin-top: 2.5rem;
+  padding-top: 2.5rem;
 }
 
 .filter-box {
@@ -364,22 +365,26 @@ padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   background-color: #ed8f5d44;
   border: 1px solid #ed8f5d49;
-
-
 }
 
 /* ADD CAT */
 
 .big-container {
   background-color: #FFEDE2;
-  padding:  1rem ;
+ width: 100%;
+ padding: 1rem;
 }
+
+.margin--top {
+  padding-top: 3rem;
+}
+
 
 .big-heading {
   font-size: 3rem;
-  margin-top: 1.6rem;
   color: #0B1350;
-  margin-bottom: 2rem;
+  text-align: center;
+  padding: 1rem 0 2rem 0;
 }
 
 .add-cat-form {
@@ -484,6 +489,12 @@ padding: 1rem;
 
 /* LOCATIONS */
 
+.all-locations-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .locations-container {
   display: flex;
   justify-content: space-evenly;
@@ -516,11 +527,9 @@ padding: 1rem;
 .cat-details-heading {
   font-size: 2.5rem;
   font-weight: 300;
-}
-
-.cat-details-heading span {
   font-weight: 700;
 }
+
 
 .cat-details-info-box p {
   font-size: 1.5rem;

@@ -28,6 +28,10 @@ function App() {
 
 <Navbar />
 
+
+
+
+
     <Routes>
 
     <Route path='/' element={<HomePage />} />
@@ -43,6 +47,8 @@ function App() {
         <Route path='/login' element={<IsAnon><LoginPage /></IsAnon>} />
 
     </Routes>
+
+
 
     </div>
 
