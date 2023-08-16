@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .App {
   text-align: center;
   font-family: 'Fredoka', sans-serif;
@@ -26,6 +27,8 @@
     transform: rotate(360deg);
   }
 }
+
+
 
 /* ALL */
 .btn-all {
@@ -53,6 +56,10 @@
 
 .back-button:hover, .edit-button:hover, .btn--signup:hover {
   filter: brightness(90%);
+}
+
+.margin--top {
+  margin-top: 1rem;
 }
 
 
@@ -129,18 +136,15 @@
   justify-content: center;
 }
 
-/* .home-grid {
-  width: 80vw;
+.home-grid {
+  max-width: 95rem;
   margin: 0 auto;
   display: grid;
   grid-template-columns:  0.5fr 1fr;
   align-items:center;
   padding: 0 1.5rem;
 
-  gap: 4rem;
-
-  overflow: auto;
-} */
+}
 
 /* .home-container {
   display: grid;
@@ -169,6 +173,23 @@
 
 .hero-img-container {
   width: 100%;
+}
+
+.home-text-box {
+  background-color: rgb(237, 144, 93, 0.5);
+  color: #0B1350;
+  backdrop-filter: blur(5px);
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 11px;
+  margin-top: 6.5rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.home-text-box h2 {
+  margin-top: 1.5rem;
 }
 
 
@@ -200,9 +221,8 @@
 
 
 .home-text {
-  font-size: 1.4rem;
-  overflow-wrap: break-word;
-  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  margin-top: 1.2rem;
   line-height: 1.5;
 }
 
@@ -221,23 +241,30 @@ transform: scale(1.1);
 }
 
 .btn--get-fact {
-  margin: 1.2rem 0;
+  margin: 1.2rem 0 0 0;
+  background-color: rgb(237, 144, 93, 0.5);
   color: #0B1350;
-  background-color: #FFEDE2;
+  border: none;
   transition: all 0.3s;
   text-transform: uppercase;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.btn--get-fact img {
+width: 2.5rem;
+height: 2.5rem;
 }
 
 .btn--get-fact:hover {
-  background-color: #0B1350;
-  color: #ED905D;
+  background-color: #ED905D;
   transform: scale(1.1);
 }
 
 .api-fact {
   font-size: 1.1rem;
   font-weight: 500;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0 1rem 0 ;
   line-height: 1.4;
 }
 
