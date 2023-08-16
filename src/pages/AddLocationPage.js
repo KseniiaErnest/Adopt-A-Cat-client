@@ -12,7 +12,7 @@ export default function AddLocationPage() {
   const [openingHours, setOpeningHours] = useState('');
   const [website, setWebsite] = useState('');
   const [description, setDescription] = useState('');
-  const [cats, setCats] = useState([]);
+//   const [cats, setCats] = useState([]);
 
   // Get the token from the localStorage
   const storedToken = localStorage.getItem('authToken');
@@ -20,7 +20,7 @@ export default function AddLocationPage() {
  const handleSubmit = (e) => {
   e.preventDefault();
 
-  const requestBody = { name, address, phoneNumber, email, openingHours, website, description, cats };
+  const requestBody = { name, address, phoneNumber, email, openingHours, website, description };
 
   // Send the token through the request "Authorization" Headers
   axios.post(`${API_URL}/locations`, requestBody,  { headers: { Authorization: `Bearer ${storedToken}` } })
@@ -33,7 +33,7 @@ export default function AddLocationPage() {
     setOpeningHours('');
     setWebsite('');
     setDescription('');
-    setCats('');
+//     setCats('');
   })
   .catch((err) => console.log(err));
  };
@@ -80,10 +80,10 @@ export default function AddLocationPage() {
         <input type='text' name='description' value={description} onChange={(e) => setDescription(e.target.value)} />
 </div>
 
-<div className='form-box'>
+{/* <div className='form-box'>
         <label>Cats:</label>
         <input type='text' name='cats' value={cats} onChange={(e) => setCats(e.target.value)} />
-</div>
+</div> */}
 
 
 <button className='btn'>Submit Information</button>
