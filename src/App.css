@@ -65,17 +65,22 @@ body, html, #root {
 
 
 /* NAVBAR */
-
-
-.navbar-container {
+header {
   background-color: #0B1350;
   height: 4.6rem ;
   display: flex;
-  justify-content:space-between;
-  font-size: 2rem;
   align-items: center;
+  justify-content: space-between;
+  font-size: 2rem;
   padding: 0.5rem 1rem;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+
 }
 
 .navbar-img-user-box {
@@ -112,6 +117,16 @@ body, html, #root {
   width: 4.4rem;
   height: 4.4rem;
 }
+
+/* Mobile Menu */
+header .nav-mobile-btn {
+  display: none;
+  background-color: #0B1350;
+  border: none;
+
+}
+
+
 
 /* STICKY */
 .sticky {
@@ -921,5 +936,49 @@ font-weight: 500;
 
   .logout-btn {
     padding-right: 1rem;
+  }
+
+  /* Mobile Menu Nav */
+
+  header .nav-mobile-btn {
+    display: block;
+    opacity: 1;
+  }
+  header .navbar-container {
+    position: fixed;
+		top: -100vh;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		background-color: rgba(11, 19, 80, 0.76);
+    backdrop-filter: blur(5px);
+		transition: 1s;
+    z-index: 10;
+  }
+
+  .navbar-links-container {
+    flex-direction: column;
+    font-size: 2.5rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  header .responsive--nav {
+    transform: translateY(100vh);
+  }
+
+  .navbar-container .close-nav-btn {
+    width: 2.7rem;
+    height: 2.7rem;
+    padding: 9px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: #ED905D;
+    text-align: center;
+
   }
 }
