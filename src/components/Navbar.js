@@ -14,6 +14,8 @@ export default function Navbar() {
   const [openModal, setOpenModal] = useState(false);
 
 
+
+
  // Function to close the login modal
   const handleModalClose = () => {
     setOpenModal(false);
@@ -47,7 +49,8 @@ export default function Navbar() {
 
   //  Update the rendering logic to display different content depending on whether the user is logged in or not
   return (
-    <nav className="navbar-container">
+    
+    <nav className="navbar-container" >
 
     <div className="navbar-img-user-box">
       <img className="cat-logo-img" src="/catlogo3.png" alt="cat logo" />
@@ -114,6 +117,7 @@ export default function Navbar() {
 
       </div>
     </nav>
+
   );
 }
 
