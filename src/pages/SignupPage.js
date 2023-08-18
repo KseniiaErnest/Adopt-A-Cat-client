@@ -36,7 +36,7 @@ console.log('Singing up');
       })
       .catch((err) => {
         console.log({ error: err });
-        const errorDescription = err.response.data.message;
+        const errorDescription = err.message;
         setErrorMessage(errorDescription);
       });
   };
