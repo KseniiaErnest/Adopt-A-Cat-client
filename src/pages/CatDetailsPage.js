@@ -52,13 +52,13 @@ export default function CatDetailsPage() {
         <div className='cat-details-info-box'>
 
           <h2 className='cat-details-heading'> {catDetails.name}</h2>
-          <p>Date of birth: {formattedDate(catDetails.age)}</p>
-          <p>Sex: {catDetails.gender}</p>
-          <p>Color: {catDetails.color}</p>
-          <p>About: {catDetails.description}</p>
-          <p>Status: {catDetails.availability}</p>
-          <p>In shelter since: {formattedDate(catDetails.dateOfEntry)}</p>
-          <p>Shelter: {catDetails.location.name}</p>
+          <p><span>Date of birth:</span> {formattedDate(catDetails.age)}</p>
+          <p><span>Sex:</span> {catDetails.gender}</p>
+          <p><span>Color:</span> {catDetails.color}</p>
+          <p><span>Status:</span> {catDetails.availability}</p>
+          <p><span>In shelter since:</span> {formattedDate(catDetails.dateOfEntry)}</p>
+          <p><span>Shelter:</span> {catDetails.location.name}</p>
+          <p className='cat-details-about'>{catDetails.description}</p>
 
           <div className='btn-container'>
           <Link to='/cats'><button className='btn-all back-button'>Back to cats list</button></Link>

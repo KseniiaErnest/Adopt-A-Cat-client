@@ -88,7 +88,7 @@ console.log('Singing up');
             <select id="role" value={role} onChange={handleRole}>
               <option value="">Select one</option>
               <option value="Adopter">Adopter</option>
-              <option value="Cat Owner">Cat Owner</option>
+              <option value="Cat Owner">Rescuer</option>
             </select>
           </div>
 

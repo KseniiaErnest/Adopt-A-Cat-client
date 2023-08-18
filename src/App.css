@@ -156,23 +156,13 @@ header .nav-mobile-btn {
   max-width: 95rem;
   margin: 0 auto;
   display: grid;
-  grid-template-columns:  0.5fr 1fr;
+  grid-template-columns:  0.7fr 1fr;
   align-items:center;
+  justify-content: center;
   padding: 0 1.5rem;
 
 }
 
-/* .home-container {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  width: 90%;
-  height: 43rem;
-  margin: 0 auto;
-  overflow:auto;
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin-top: 1.5rem;
-} */
 
 .home-container {
   display: flex;
@@ -180,12 +170,6 @@ header .nav-mobile-btn {
 }
 
 
-
-
-/* .hero-img-container {
-  width: 100%; 
-  height: 100%; 
-} */
 
 .hero-img-container {
   width: 100%;
@@ -198,7 +182,7 @@ header .nav-mobile-btn {
   width: 50%;
   margin: 0 auto;
   border-radius: 11px;
-  margin-top: 6.5rem;
+  margin-top: 8.5rem;
   margin-bottom: 1rem;
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -552,6 +536,14 @@ padding: 1rem;
   font-size: 1.5rem;
 }
 
+.cat-details-info-box span {
+  font-weight: 500;
+}
+
+.cat-details-about {
+  padding: 0 1rem ;
+}
+
 .btn-container {
   margin-top: 1.5rem;
 }
@@ -616,6 +608,10 @@ padding: 1.2rem;
 
 .gallery-item img:hover {
   transform: scale(1.1);
+}
+
+.cat-details-info-box h2 {
+  font-size: 2rem;
 }
 
 
@@ -757,17 +753,7 @@ box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
 
-/* .home-grid {
-  max-width: 90rem;
- 
-  display: grid;
-  grid-template-columns:  0.5fr 1fr;
-  margin: 0 auto;
-  align-items:center;
-  padding: 1rem 1rem 0 1rem;
-} */
-
-
+/* LOGIN POPUP */
 
  .openModalBtn {
   background-color: #0B1350;
@@ -886,8 +872,14 @@ font-weight: 500;
 /* MOBILE */
 
 @media all and (max-width: 96em) {
+
+  .home-container {
+    height: 91.5vh;
+  }
+
   .home-text-box {
     width: 60%;
+    margin-top: 6rem;
   }
 }
 
@@ -896,9 +888,10 @@ font-weight: 500;
     width: 70%;
   }
 
-  .navbar-container {
+  .navbar-container, .openModalBtn {
     font-size: 1.5rem;
   }
+
 
   .cat-details--grid {
     gap: 1rem;
@@ -913,6 +906,11 @@ font-weight: 500;
   .back-button {
     margin-right: 0;
   }
+
+  .cats-photo--gallery {
+    column-count: 3;
+  }
+
 }
 
 @media all and (max-width: 64em) {
@@ -960,13 +958,16 @@ font-weight: 500;
     z-index: 10;
   }
 
-  .navbar-links-container {
+  .navbar-links-container, .openModalBtn {
     flex-direction: column;
     font-size: 2.5rem;
     align-items: center;
     justify-content: center;
   }
 
+  .openModalBtn {
+    background-color:rgba(11, 19, 80, 0) ;
+  }
   header .responsive--nav {
     transform: translateY(100vh);
   }
@@ -981,4 +982,5 @@ font-weight: 500;
     text-align: center;
 
   }
+
 }
