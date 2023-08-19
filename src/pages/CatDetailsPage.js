@@ -45,7 +45,7 @@ export default function CatDetailsPage() {
 
   return (
     <div className='section'>
-      {catDetails && (
+      {catDetails &&  (
         <div className='home-grid cat-details--grid'>
 
         <div className='cat-details-info-box'>
@@ -84,10 +84,3 @@ export default function CatDetailsPage() {
     </div>
   )
 }
-
-
-{/* <div className='cat-details-img-box' >
-{catDetails.images.map((image, index) => (
-  <Carousel images={image} key={index} />
-))}
-</div> */}

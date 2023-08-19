@@ -11,12 +11,9 @@ export default function UserProfile() {
 
   console.log('User for AuthContext:', user);
 
-  const userData = user.payload;
-  console.log(userData._id);
-
-  const [username, setUserName] = useState(userData.username);
-  const [fullName, setFullName] = useState(userData.fullName);
-  const [preferredSpecies, setPreferredSpecies] = useState(userData.preferredSpecies);
+  const [username, setUserName] = useState(user.username);
+  const [fullName, setFullName] = useState(user.fullName);
+  const [preferredSpecies, setPreferredSpecies] = useState(user.preferredSpecies);
 
   const navigate = useNavigate();
   
@@ -28,7 +25,7 @@ const handleFormSubmitUser = (e) => {
 e.preventDefault();
 
 const requestBody = { username, fullName, preferredSpecies};
-const userId = userData._id;
+const userId = user._id;
 
 axios.put(`${API_URL}/auth/${userId}`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
 .then((response) => {

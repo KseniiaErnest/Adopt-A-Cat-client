@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import Filter from '../components/Filter';
+import { AuthContext } from '../context/auth.context';
 
 const API_URL = "http://localhost:5005";
 
 export default function CatsPage() {
+  const { user } = useContext(AuthContext);
   const [cats, setCats] = useState([]);
 
   // States for filter to keep track
@@ -25,7 +27,8 @@ export default function CatsPage() {
         const catsWithAgeCategory = response.data.allCats.map((cat) => ({
           ...cat,
           ageCategory: calculateCatsAge(cat.age),
-        }));
+        }))
+        .filter((cat) => cat.species === user.preferredSpecies)
   
         // Set the cats state with the calculated age categories
         setCats(catsWithAgeCategory);
