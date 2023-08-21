@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import '../App.css';
 import LoginPage from "../pages/LoginPage";
+import UserProfile from "../pages/UserProfile";
 
 
 export default function Navbar() {
@@ -58,17 +59,28 @@ export default function Navbar() {
     <header>
     <nav className="navbar-container" ref={navRef}>
 
+{user && (
     <div className="navbar-img-user-box">
+    {user.preferredSpecies === 'Cat' ? (
       <img className="cat-logo-img" src="/catlogo3.png" alt="cat logo" />
+    ) : (
+      <img className="cat-logo-img" src="/logodog.png" alt="dog logo" />
+    )}
+      
 
       {isLoggedIn && (
         <>
         {user && <span className="navbar-username">{user.username}</span>}
           <button className="logout-btn" onClick={logOutUser}>Logout</button>
+
+          <button className="openModal " onClick={() => {setOpenModal(true)}}>User Profile</button>
+          {openModal && <UserProfile closeModal={handleModalClose} />}
         </>
       )}
 
       </div>
+
+      )}
      
 <div className="navbar-links-container">
       <Link className="navbar-link-box" to="/">
@@ -79,13 +91,7 @@ export default function Navbar() {
         <>
           <Link className="navbar-link-box" to="/cats">
             Cats
-          </Link>
-
-          <Link className="navbar-link-box" to="/userId">
-            User Profile
-          </Link>
-
-          
+          </Link>         
 
 {role === 'Cat Owner' && (
   <>
@@ -115,10 +121,6 @@ export default function Navbar() {
           <Link className="navbar-link-box" to="/signup">
             Sign Up
           </Link>
-
-          {/* <Link className="navbar-link-box" to="/login">
-            Login
-          </Link> */}
 
           <button className="openModal" onClick={() => {setOpenModal(true)}}>Login</button>
           {openModal && <LoginPage closeModal={handleModalClose} />}

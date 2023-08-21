@@ -5,7 +5,7 @@ import { AuthContext } from '../context/auth.context';
 
 const API_URL = "http://localhost:5005";
 
-export default function UserProfile() {
+export default function UserProfile( {closeModal} ) {
   const { user } = useContext(AuthContext);
   const { setUser } = useContext(AuthContext);
 
@@ -32,13 +32,16 @@ axios.put(`${API_URL}/auth/${userId}`, requestBody, { headers: { Authorization: 
   setUser(response.data.UserToUpdate);
   console.log('User profile updated successfully:', response.data);
   navigate('/');
+  closeModal();
 })
 .catch((err) => console.log(err))
 };
 
 return (
-  <div>
+  <div className='modalBackground'>
+  <div className='modalContainer'>
     <form onSubmit={handleFormSubmitUser}>
+    <button onClick={closeModal}> X </button>
     <input type='text' name='username' value={username} onChange={(e) => setUserName(e.target.value)} />
     <input type='text' name='fullName' value={fullName} onChange={(e) => setFullName(e.target.value)} />
     <label>Preferred Species: {preferredSpecies}</label>
@@ -51,6 +54,7 @@ return (
 
 <button type='submit'>Save</button>
     </form>
+  </div>
   </div>
 )
 }
