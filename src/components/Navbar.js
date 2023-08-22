@@ -114,10 +114,6 @@ export default function Navbar() {
             Sign Up
           </Link>
 
-          {/* <Link className="navbar-link-box" to="/login">
-            Login
-          </Link> */}
-
           <button className="openModalBtn" onClick={() => {setOpenModal(true)}}>Login</button>
           
           {openModal && <LoginPage closeModal={handleModalClose} />}

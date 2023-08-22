@@ -85,10 +85,3 @@ export default function CatDetailsPage() {
     </div>
   )
 }
-
-
-{/* <div className='cat-details-img-box' >
-{catDetails.images.map((image, index) => (
-  <Carousel images={image} key={index} />
-))}
-</div> */}
