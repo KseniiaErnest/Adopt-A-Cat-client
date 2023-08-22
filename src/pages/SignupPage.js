@@ -99,10 +99,7 @@ console.log('Singing up');
 
           {errorMessage && <p>{errorMessage}</p>}
 
-          <div>
-            {/* <p className='signup-login-text'>Already have account?</p> */}
-            {/* <Link className='login-link' to={'/login'} >Login</Link> */}
-          </div>
+      
         </form>
       </div>
 
