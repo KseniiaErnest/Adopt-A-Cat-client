@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './App.css';
 import { Routes, Route, } from 'react-router-dom';
 
@@ -17,10 +17,13 @@ import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
+import UserProfile from './pages/UserProfile';
+import { AuthContext } from './context/auth.context';
 
 
 
 function App() {
+  const { user } = useContext(AuthContext);
 
 
   return (
@@ -35,6 +38,15 @@ function App() {
     <Routes>
 
     <Route path='/' element={<HomePage />} />
+    {/* <Route path='/:userId' element={<IsPrivate allowedRoles={['Cat Owner', 'Adopter']}><UserProfile /></IsPrivate>} /> */}
+    <Route
+        path='/:userId'
+        element={
+          <IsPrivate allowedRoles={['Cat Owner', 'Adopter']}>
+            {user && <UserProfile />}
+          </IsPrivate>
+        }
+      />
         <Route path='/cats' element={<IsPrivate allowedRoles={['Cat Owner', 'Adopter']}><CatsPage /></IsPrivate>} />
         <Route path='/cats/:catId' element={<IsPrivate allowedRoles={['Cat Owner', 'Adopter']}><CatDetailsPage /></IsPrivate>} />
         <Route path='/cats/add-a-cat' element={<IsPrivate allowedRoles={['Cat Owner']}><AddCatPage /></IsPrivate>} />

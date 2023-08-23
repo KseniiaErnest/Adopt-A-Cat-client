@@ -62,15 +62,17 @@ const isUserAssociatedWithLocation = locationDetails && locationDetails.createdB
 
         
           {locationDetails.cats.map((cat) => {
-            return (
+            if (cat.species === user.preferredSpecies) {
+              return (
               <div key={cat._id}>
-              <figure className='gallery-item' >
+              <figure className='gallery-item'>
+              <img src={cat.images[0]} alt='Cat pic' />
               <Link to={`/cats/${cat._id}`}><img src={cat.images[0]} alt='Cat pic' /></Link>
               </figure>
               </div>
-            )
-           
-          })}
+            );
+            }
+           })}
         
 
 </div>

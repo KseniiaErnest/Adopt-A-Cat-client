@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/auth.context';
@@ -9,6 +8,7 @@ import { useParams } from 'react-router-dom';
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 export default function AddCatPage() {
+  const { user } = useContext(AuthContext);
 
   const [name, setName] = useState('');
   const [age, setAge] = useState(new Date());
@@ -21,12 +21,11 @@ export default function AddCatPage() {
   const [dateOfEntry, setDateOfEntry] = useState(new Date());
   const [selectedLocation, setSelectedLocation] = useState('');
   const [userLocations, setUserLocations] = useState([]);
+  const [species, setSpecies] = useState(user.preferredSpecies);
  
 
  // Get the token from the localStorage
  const storedToken = localStorage.getItem('authToken');
-
-const { user } = useContext(AuthContext);
 
 const navigate = useNavigate();
 
@@ -64,6 +63,7 @@ const handleSubmit = (e) => {
 
   uploadData.append('dateOfEntry', formattedDateOfEntry);
   uploadData.append('location', selectedLocation);
+  uploadData.append('species', user.preferredSpecies);
 
   console.log('Selected location ID:', selectedLocation);
   
@@ -86,6 +86,8 @@ const handleSubmit = (e) => {
     setImages([]);
     setDateOfEntry(new Date());
     setSelectedLocation('');
+    setSpecies(user.preferredSpecies);
+   
 
     
    navigate('/cats');

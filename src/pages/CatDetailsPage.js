@@ -46,7 +46,7 @@ export default function CatDetailsPage() {
 
   return (
     <div className='section'>
-      {catDetails && (
+      {catDetails &&  (
         <div className='home-grid cat-details--grid'>
 
         <div className='cat-details-info-box'>

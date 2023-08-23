@@ -37,6 +37,7 @@ function AuthProviderWrapper(props) {
       .then((response) => {
         // If the server verifies that the JWT token is valid  
         const user = response.data;
+        console.log("AuthUser:", user);
        // Update state variables        
         setIsLoggedIn(true);
         setIsloading(false);
@@ -70,6 +71,7 @@ function AuthProviderWrapper(props) {
 
     navigate('/');
   };
+
  
   
   useEffect(() => {                                      
@@ -77,7 +79,7 @@ function AuthProviderWrapper(props) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, isLoading, user, storeToken, authenticateUser, logOutUser, role }}>
+    <AuthContext.Provider value={{ isLoggedIn, isLoading, user, storeToken, authenticateUser, logOutUser, role, setUser }}>
       {props.children}
     </AuthContext.Provider>
   )
