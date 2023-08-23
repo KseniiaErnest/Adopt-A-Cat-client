@@ -19,7 +19,7 @@ export default function Navbar() {
 
 	const showNavbar = () => {
 		navRef.current.classList.toggle(
-			"responsive_nav"
+			"responsive--nav"
 		);
 	};
 
@@ -57,7 +57,6 @@ export default function Navbar() {
   //  Update the rendering logic to display different content depending on whether the user is logged in or not
   return (
     <header>
-    <nav className="navbar-container" ref={navRef}>
 
 {user && (
     <div className="navbar-img-user-box">
@@ -71,7 +70,8 @@ export default function Navbar() {
       {isLoggedIn && (
         <>
         {user && <span className="navbar-username">{user.username}</span>}
-          <button className="logout-btn" onClick={logOutUser}>Logout</button>
+          {/* <button className="logout-btn" onClick={logOutUser}>Logout</button> */}
+          <button className="logout-btn" onClick={logOutUser}><img src="/icons8-logout-56.png" alt="logout icon" /></button>
 
           <button className="openModal " onClick={() => {setOpenModal(true)}}>User Profile</button>
           {openModal && <UserProfile closeModal={handleModalClose} />}
@@ -81,6 +81,8 @@ export default function Navbar() {
       </div>
 
       )}
+
+      <nav className="navbar-container" ref={navRef}>
      
 <div className="navbar-links-container">
       <Link className="navbar-link-box" to="/">
@@ -122,17 +124,17 @@ export default function Navbar() {
             Sign Up
           </Link>
 
-          <button className="openModal" onClick={() => {setOpenModal(true)}}>Login</button>
+          <button className="openModalBtn" onClick={() => {setOpenModal(true)}}>Login</button>
           {openModal && <LoginPage closeModal={handleModalClose} />}
 
         </>
       )}
 
       </div>
-      <button className="nav-btn nav-close-btn" onClick={showNavbar}>CLose</button>
+      <button className="nav-mobile-btn close-nav-btn" onClick={showNavbar}> X </button>
     </nav>
 
-    <button className="nav-btn" onClick={showNavbar}>Open</button>
+    <button className="nav-mobile-btn" onClick={showNavbar}><img src="/icons8-menu-50.png" alt="icon nav menu" /></button>
 
     </header>
   );
