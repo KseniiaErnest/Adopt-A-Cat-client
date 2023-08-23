@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:5005";
+// const API_URL = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 export default function EditLocationPage() {
 
@@ -65,7 +66,7 @@ axios.put(`${API_URL}/locations/${locationId}`, requestBody, { headers: { Author
 
   return (
     <div>
-       <div className='big-container'>
+       <div className='big-container margin--top'>
 
 <h1 className='big-heading'>Add information about organization</h1>
 
@@ -111,7 +112,7 @@ axios.put(`${API_URL}/locations/${locationId}`, requestBody, { headers: { Author
 <button className='btn'>Submit Information</button>
 </form>
 
-<button onClick={deleteLocationInfo}>Delete Information</button>
+<button className='btn delete--option' onClick={deleteLocationInfo}>Delete Information</button>
 </div>
     </div>
   )

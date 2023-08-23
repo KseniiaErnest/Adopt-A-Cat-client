@@ -4,7 +4,8 @@ import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import Carousel from '../components/Carousel';
 
-const API_URL = "http://localhost:5005";
+// const API_URL = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 export default function CatDetailsPage() {
 
@@ -50,14 +51,14 @@ export default function CatDetailsPage() {
 
         <div className='cat-details-info-box'>
 
-          <h2 className='cat-details-heading'>Cat's name: <span>{catDetails.name}</span> </h2>
-          <p>Date of birth: {formattedDate(catDetails.age)}</p>
-          <p>Sex: {catDetails.gender}</p>
-          <p>Color: {catDetails.color}</p>
-          <p>About: {catDetails.description}</p>
-          <p>Status: {catDetails.availability}</p>
-          <p>Date of entry in the system: {formattedDate(catDetails.dateOfEntry)}</p>
-          <p>Belong to: {catDetails.location.name}</p>
+          <h2 className='cat-details-heading'> {catDetails.name}</h2>
+          <p><span>Date of birth:</span> {formattedDate(catDetails.age)}</p>
+          <p><span>Sex:</span> {catDetails.gender}</p>
+          <p><span>Color:</span> {catDetails.color}</p>
+          <p><span>Status:</span> {catDetails.availability}</p>
+          <p><span>In shelter since:</span> {formattedDate(catDetails.dateOfEntry)}</p>
+          <p><span>Shelter:</span> {catDetails.location.name}</p>
+          <p className='cat-details-about'>{catDetails.description}</p>
 
           <div className='btn-container'>
           <Link to='/cats'><button className='btn-all back-button'>Back to cats list</button></Link>

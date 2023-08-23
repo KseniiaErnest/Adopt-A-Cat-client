@@ -4,7 +4,8 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 
-const API_URL = "http://localhost:5005";
+// const API_URL = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 export default function LoginPage( {closeModal} ) {
 
@@ -50,22 +51,26 @@ const handleLoginSubmit = (e) => {
 
     <h1>Login</h1>
 
-<form onSubmit={handleLoginSubmit}>
+<form className='login-container' onSubmit={handleLoginSubmit}>
 
-<button onClick={closeModal}> X </button>
-
+<button className='close-login-btn' onClick={closeModal}> X </button>
+<div className='login-form'>
   <label>Email:</label>
   <input type='email' name='email' value={email} onChange={handleEmail} />
 
   <label>Password:</label>
   <input type='password' name='password' value={password} onChange={handlePassword} />
 
-  <button type='submit'>Login</button>
+  
+
+  </div>
+
+  <button className='login-btn' type='submit'>Login</button>
 
   {errorMessage && <p>{errorMessage}</p>}
 
   <p>Don't have an account yet?</p>
-  <Link to={'/signup'} >Sign Up</Link>
+  <Link className='sign-up-link' to={'/signup'} onClick={closeModal} >Sign Up</Link>
 
 </form>
 

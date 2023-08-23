@@ -21,6 +21,7 @@ import UserProfile from './pages/UserProfile';
 import { AuthContext } from './context/auth.context';
 
 
+
 function App() {
   const { user } = useContext(AuthContext);
 
@@ -29,6 +30,10 @@ function App() {
     <div className="App">
 
 <Navbar />
+
+
+
+
 
     <Routes>
 
@@ -55,7 +60,11 @@ function App() {
 
     </Routes>
 
+
+
     </div>
+
+
   );
 }
 

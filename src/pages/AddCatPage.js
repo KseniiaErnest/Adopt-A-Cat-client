@@ -1,11 +1,11 @@
-
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/auth.context';
 
 import { useParams } from 'react-router-dom';
 
-const API_URL = "http://localhost:5005";
+// const API_URL = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 export default function AddCatPage() {
   const { user } = useContext(AuthContext);
@@ -26,6 +26,8 @@ export default function AddCatPage() {
 
  // Get the token from the localStorage
  const storedToken = localStorage.getItem('authToken');
+
+const navigate = useNavigate();
 
 
 useEffect(() => {
@@ -87,6 +89,9 @@ const handleSubmit = (e) => {
     setSpecies(user.preferredSpecies);
    
 
+    
+   navigate('/cats');
+
   })
   .catch((err) => console.log(err));
 
@@ -116,7 +121,7 @@ const handleImages = (e) => {
 </div>
 
 <div className='form-box'>
-        <label>Cat's breed</label>
+        <label>Cat's breed:</label>
         <input type='text' name='breed' value={breed} onChange={(e) => setBreed(e.target.value)} />
 </div>
 
@@ -136,7 +141,7 @@ const handleImages = (e) => {
 </div>
 
 <div className='form-box'>
-        <label>Cat's bio</label>
+        <label>Cat's bio:</label>
         <textarea type='text' name='description' value={description} onChange={(e) => setDescription(e.target.value)} />
 </div>
 
@@ -152,12 +157,12 @@ const handleImages = (e) => {
 
 
 <div className='form-box'>
-        <label>Cat's date of entry into the system</label>
+        <label>In the shelter since</label>
         <input type='date' name='dateOfEntry' value={dateOfEntry} onChange={(e) => setDateOfEntry(e.target.value)} />
 </div>
 
 <div className='form-box'>
-          <label>Cat is belong to:</label>
+          <label>Cat's shelter:</label>
           <select value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)}>
             <option value=''>Select a location</option>
             {userLocations.map(location => (

@@ -3,7 +3,8 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 
-const API_URL = "http://localhost:5005";
+// const API_URL = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
 export default function LocationDetailsPage() {
 
@@ -40,13 +41,13 @@ const isUserAssociatedWithLocation = locationDetails && locationDetails.createdB
       <div className='home-grid grid--start'>
 
       <div className='cat-details-info-box'>
-        <h2>Name: {locationDetails.name}</h2>
-        <p>Address: {locationDetails.address}</p>
-        <p>Phone number: {locationDetails.phoneNumber}</p>
-        <p>Email: {locationDetails.email}</p>
-        <p>Open hours: {locationDetails.openingHours}</p>
-        <p>Website: {locationDetails.website}</p>
-        <p>About: {locationDetails.description}</p>
+        <h2>{locationDetails.name}</h2>
+        <p className='cat-details-about'>{locationDetails.description}</p>
+        <p><span>Address:</span> {locationDetails.address}</p>
+        <p><span>Phone number:</span> {locationDetails.phoneNumber}</p>
+        <p><span>Email:</span> {locationDetails.email}</p>
+        <p><span>Open hours:</span> {locationDetails.openingHours}</p>
+        <p><span>Website:</span> {locationDetails.website}</p>
         <div className='btn-container'>
         <Link to='/locations'><button className='btn-all back-button'>Back</button></Link>
 
@@ -63,9 +64,10 @@ const isUserAssociatedWithLocation = locationDetails && locationDetails.createdB
           {locationDetails.cats.map((cat) => {
             if (cat.species === user.preferredSpecies) {
               return (
-              <div>
-              <figure className='gallery-item' key={cat._id}>
+              <div key={cat._id}>
+              <figure className='gallery-item'>
               <img src={cat.images[0]} alt='Cat pic' />
+              <Link to={`/cats/${cat._id}`}><img src={cat.images[0]} alt='Cat pic' /></Link>
               </figure>
               </div>
             );
