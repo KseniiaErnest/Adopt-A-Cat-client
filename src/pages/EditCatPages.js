@@ -115,26 +115,26 @@ axios.delete(`${API_URL}/cats/${catId}`, { headers: { Authorization: `Bearer ${s
   return (
     <div>
        <div className='big-container'>
-      <h1 className='big-heading'>Edit cat's information</h1>
+      <h1 className='big-heading'>Edit pet's information</h1>
 
       <form className='add-cat-form' onSubmit={handleFormSubmit}>
       <div className='form-box'>
-        <label>Cat's name:</label>
+        <label>Pet's name:</label>
         <input type='text' name='name' value={name} onChange={(e) => setName(e.target.value)} />
 </div>
 
 <div className='form-box'>
-        <label>Cat's age:</label>
+        <label>Pet's age:</label>
         <input type='date' name='age' value={age} onChange={(e) => setAge(e.target.value)} />
 </div>
 
 <div className='form-box'>
-        <label>Cat's breed</label>
+        <label>Pet's breed</label>
         <input type='text' name='breed' value={breed} onChange={(e) => setBreed(e.target.value)} />
 </div>
 
 <div className='form-box'>
-        <label>Cat's gender:</label>
+        <label>Pet's gender:</label>
        <select id='gender' value={gender} onChange={(e) => setGender(e.target.value)}>
         <option value=''>Select gender</option>
         <option value='Male'>Male</option>
@@ -144,17 +144,17 @@ axios.delete(`${API_URL}/cats/${catId}`, { headers: { Authorization: `Bearer ${s
 </div>
 
 <div className='form-box'>
-        <label>Cat's color:</label>
+        <label>Pet's color:</label>
         <input type='text' name='color' value={color} onChange={(e) => setColor(e.target.value)} />
 </div>
 
 <div className='form-box'>
-        <label>Cat's bio</label>
+        <label>Pet's bio</label>
         <textarea type='text' name='description' value={description} onChange={(e) => setDescription(e.target.value)} />
 </div>
 
 <div className='form-box'>
-        <label>Cat's status:</label>
+        <label>Pet's status:</label>
         <select id='availability' value={availability} onChange={(e) => setAvailability(e.target.value)}>
         <option value=''>Please, select one</option>
         <option value='Available'>Available</option>
@@ -166,7 +166,7 @@ axios.delete(`${API_URL}/cats/${catId}`, { headers: { Authorization: `Bearer ${s
 
 
 <div className='form-box'>
-        <label>Cat's date of entry into the system</label>
+        <label>Pet's date of entry into the system</label>
         <input type='date' name='dateOfEntry' value={dateOfEntry} onChange={(e) => setDateOfEntry(e.target.value)} />
 </div>
 
@@ -187,7 +187,7 @@ Add images to the collection
 <input id='imageInput' type='file' name='images' multiple onChange={(event) => handleMultipleImages(event)} className='upload-pet' />
 </label>
 
-        <button className='btn'>Submit Cat's Information</button>
+        <button className='btn'>Submit Pet's Information</button>
 
       </form>
       <button className='btn delete--option' onClick={deleteCatInfo}>Delete Information</button>

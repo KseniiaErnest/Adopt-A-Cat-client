@@ -106,7 +106,7 @@ console.log('Singing up');
       <div
         className="signup-img-container"
         style={{
-          backgroundImage: "url(/cats-many.png)",
+          backgroundImage: "url(/catsdogsnew.png)",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}

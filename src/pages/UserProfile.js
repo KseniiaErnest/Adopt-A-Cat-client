@@ -40,19 +40,25 @@ axios.put(`${API_URL}/auth/${userId}`, requestBody, { headers: { Authorization: 
 return (
   <div className='modalBackground'>
   <div className='modalContainer'>
-    <form onSubmit={handleFormSubmitUser}>
-    <button onClick={closeModal}> X </button>
+    <form className='user-from' onSubmit={handleFormSubmitUser}>
+    <button className='close-login-btn' onClick={closeModal}> X </button>
+    <div className='user-box'>
+
+    <label>Username:</label>
     <input type='text' name='username' value={username} onChange={(e) => setUserName(e.target.value)} />
+    <label>Full name:</label>
     <input type='text' name='fullName' value={fullName} onChange={(e) => setFullName(e.target.value)} />
-    <label>Preferred Species: {preferredSpecies}</label>
-    <label>Do you want to change preferred species to:</label>
+    <label>Change pet type:</label>
     <select id='preferredSpecies' value={preferredSpecies} onChange={(e) => setPreferredSpecies(e.target.value)}>
   <option value='Cat'>Cat</option>
     <option value='Dog'>Dog</option>
       </select>
+      <label>Your pet type: {preferredSpecies}</label>
+
+      </div>
 
 
-<button type='submit'>Save</button>
+<button className='login-btn' type='submit'>Save</button>
     </form>
   </div>
   </div>

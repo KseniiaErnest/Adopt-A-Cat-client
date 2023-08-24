@@ -70,11 +70,11 @@ export default function Navbar() {
       {isLoggedIn && (
         <>
         {user && <span className="navbar-username">{user.username}</span>}
-          {/* <button className="logout-btn" onClick={logOutUser}>Logout</button> */}
+        <button  className="openModal logout-btn" onClick={() => {setOpenModal(true)}}><img src="/icons8-customer-100.png" alt="user icon" /></button>
+          {openModal && <UserProfile closeModal={handleModalClose} />}
           <button className="logout-btn" onClick={logOutUser}><img src="/icons8-logout-56.png" alt="logout icon" /></button>
 
-          <button className="openModal " onClick={() => {setOpenModal(true)}}>User Profile</button>
-          {openModal && <UserProfile closeModal={handleModalClose} />}
+
         </>
       )}
 
@@ -92,14 +92,14 @@ export default function Navbar() {
       {isLoggedIn && (
         <>
           <Link className="navbar-link-box" to="/cats">
-            Cats
+            Pets
           </Link>         
 
 {role === 'Cat Owner' && (
   <>
   
   <Link className="navbar-link-box" to="/cats/add-a-cat">
-            Add Cat
+            Add Pet
           </Link>
 
           <Link className="navbar-link-box" to="/locations/add-a-location">

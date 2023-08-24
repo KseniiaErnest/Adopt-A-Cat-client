@@ -35,7 +35,7 @@ const handleSearch = (e) => {
       <label> Age filter:
         <select value={ageCategory} onChange={handleAgeCategoryChange}>
           <option value=''>All</option>
-          <option value='Kitten'>Kitten</option>
+          <option value='Kitten'>Kitten/Puppy</option>
           <option value='Young adult'>Young adult</option>
           <option value='Adult'>Adult</option>
           <option value='Senior'>Senior</option>

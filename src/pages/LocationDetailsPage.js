@@ -66,7 +66,6 @@ const isUserAssociatedWithLocation = locationDetails && locationDetails.createdB
               return (
               <div key={cat._id}>
               <figure className='gallery-item'>
-              <img src={cat.images[0]} alt='Cat pic' />
               <Link to={`/cats/${cat._id}`}><img src={cat.images[0]} alt='Cat pic' /></Link>
               </figure>
               </div>

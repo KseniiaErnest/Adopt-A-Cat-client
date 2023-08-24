@@ -107,26 +107,26 @@ const handleImages = (e) => {
 
   return (
     <div className='big-container'>
-      <h1 className='big-heading'>Add a cat for adoption</h1>
+      <h1 className='big-heading'>Add a pet for adoption</h1>
 
       <form className='add-cat-form' onSubmit={handleSubmit}>
       <div className='form-box'>
-        <label>Cat's name:</label>
+        <label>Pet's name:</label>
         <input type='text' name='name' value={name} onChange={(e) => setName(e.target.value)} />
 </div>
 
 <div className='form-box'>
-        <label>Cat's age:</label>
+        <label>Pet's age:</label>
         <input type='date' name='age' value={age} onChange={(e) => setAge(e.target.value)} />
 </div>
 
 <div className='form-box'>
-        <label>Cat's breed:</label>
+        <label>Pet's breed:</label>
         <input type='text' name='breed' value={breed} onChange={(e) => setBreed(e.target.value)} />
 </div>
 
 <div className='form-box'>
-        <label>Cat's gender:</label>
+        <label>Pet's gender:</label>
        <select id='gender' value={gender} onChange={(e) => setGender(e.target.value)}>
         <option value=''>Select gender</option>
         <option value='Male'>Male</option>
@@ -136,17 +136,17 @@ const handleImages = (e) => {
 </div>
 
 <div className='form-box'>
-        <label>Cat's color:</label>
+        <label>Pet's color:</label>
         <input type='text' name='color' value={color} onChange={(e) => setColor(e.target.value)} />
 </div>
 
 <div className='form-box'>
-        <label>Cat's bio:</label>
+        <label>Pet's bio:</label>
         <textarea type='text' name='description' value={description} onChange={(e) => setDescription(e.target.value)} />
 </div>
 
 <div className='form-box'>
-        <label>Cat's status:</label>
+        <label>Pet's status:</label>
         <select id='availability' value={availability} onChange={(e) => setAvailability(e.target.value)}>
         <option value=''>Please, select one</option>
         <option value='Available'>Available</option>
@@ -162,7 +162,7 @@ const handleImages = (e) => {
 </div>
 
 <div className='form-box'>
-          <label>Cat's shelter:</label>
+          <label>Pet's shelter:</label>
           <select value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)}>
             <option value=''>Select a location</option>
             {userLocations.map(location => (
@@ -175,7 +175,7 @@ const handleImages = (e) => {
 
 <input type='file' name='images' onChange={handleImages} multiple className='upload-pet' />
 
-        <button className='btn'>Submit Cat's Information</button>
+        <button className='btn'>Submit Pet's Information</button>
 
       </form>
     </div>

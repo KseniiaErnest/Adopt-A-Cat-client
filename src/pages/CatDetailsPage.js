@@ -61,10 +61,10 @@ export default function CatDetailsPage() {
           <p className='cat-details-about'>{catDetails.description}</p>
 
           <div className='btn-container'>
-          <Link to='/cats'><button className='btn-all back-button'>Back to cats list</button></Link>
+          <Link to='/cats'><button className='btn-all back-button'>Back</button></Link>
 
           {user && user._id === catDetails.location.createdBy && (
-            <Link to={`/cats/edit/${catId}`} ><button className='btn-all edit-button'>Edit or Delete Cat</button></Link>
+            <Link to={`/cats/edit/${catId}`} ><button className='btn-all edit-button'>Edit or Delete Pet</button></Link>
           )}
       
       </div>
