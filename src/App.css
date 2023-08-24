@@ -589,6 +589,19 @@ gap: 1.5rem;
   border: none;
 }
 
+.icon-direction {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 50%;
+}
+
+.icon-direction:active {
+  transform: translateY(4px);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px 0px;
+  filter: brightness(95%);
+}
+
 .carousel-img {
   width: 25rem;
   height: 29rem;
