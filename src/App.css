@@ -949,7 +949,7 @@ font-weight: 500;
 @media all and (max-width: 96em) {
 
   .home-container {
-    height: 91.5vh;
+    height: 90.1vh;
   }
 
   .home-text-box {
@@ -984,6 +984,10 @@ font-weight: 500;
 
   .cats-photo--gallery {
     column-count: 3;
+  }
+
+  .btn--signup {
+    font-size: 1.2rem;
   }
 
 }
@@ -1064,6 +1068,15 @@ font-weight: 500;
 }
 
 @media all and (max-width: 50em) {
+  html {
+    font-size: 90%;
+  }
+
+  .home-container {
+    height: 91.2vh;
+  }
+
+
   .home-text-box {
     width: 85%;
     margin-top: 4rem;
@@ -1089,37 +1102,67 @@ font-weight: 500;
     width: 97%;
       }
 
+      .sign-up--grid {
+        width: 90vw;
+        margin-top: 8rem;
+      }
+
 }
 
+@media all and (max-width: 40em) {
+  html {
+    font-size: 80%;
+  }
 
-/* @media only screen and (max-width: 1024px) {
-  header .nav-btn {
-		display: block;
-		opacity: 1;
-	}
+  .home-container {
+    height: 92.3vh;
+  }
 
-  header .navbar-container {
-		position: fixed;
-		top: -100vh;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 1.5rem;
-		background-color: #0b135046;
-		transition: 1s;
-	}
+  .sign-up--grid {
+    height: 65vh;
+  }
 
-  header .responsive_nav {
-		transform: translateY(100vh);
-	}
+  .signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-  .navbar-container .nav-close-btn {
-		position: absolute;
-		top: 2rem;
-		right: 2rem;
-	}
-} */
+  .margin--top {
+    padding-top: 5rem;
+  }
+
+}
+
+@media all and (max-width: 30em) {
+  html {
+    font-size: 70%;
+  }
+
+  .home-container {
+    height: 93.1vh;
+  }
+
+  .sign-up--grid {
+    margin-top: 10rem;
+  }
+
+   .icon-direction {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .big-container {
+    padding-top: 2.5rem ;
+  }
+
+  .margin--top {
+    padding-top: 7rem;
+  }
+
+}
